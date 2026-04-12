@@ -68,12 +68,12 @@ async function searchAddresses(query: string) {
 
     const kakaoKeyRes = await fetch(
       `https://dapi.kakao.com/v2/local/search/keyword.json?query=${encodeURIComponent(query)}`,
-      { 
-        headers: { 
+      {
+        headers: {
           Authorization: `KakaoAK ${KAKAO_KEY}`,
-          'Origin': 'http://localhost:5588',
-          'Referer': 'http://localhost:5588'
-        } 
+          'Origin': origin,
+          'Referer': origin
+        }
       }
     );
     const kakaoKeyJson = await kakaoKeyRes.json();
