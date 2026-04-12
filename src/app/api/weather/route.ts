@@ -22,18 +22,21 @@ function searchGolfCourses(query: string) {
 }
 
 // 카카오 / Open-Meteo 주소 검색 (읍/면/동/리 단위까지 지원)
-const KAKAO_KEY = 'b056e162c9553414d3103878e012be5e';
+const KAKAO_KEY = process.env.NEXT_PUBLIC_KAKAO_API_KEY || '';
 
 async function searchAddresses(query: string) {
   try {
+    // 배포 환경 자동 감지
+    const origin = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:5588';
+
     const kakaoRes = await fetch(
       `https://dapi.kakao.com/v2/local/search/address.json?query=${encodeURIComponent(query)}`,
-      { 
-        headers: { 
+      {
+        headers: {
           Authorization: `KakaoAK ${KAKAO_KEY}`,
-          'Origin': 'http://localhost:5588',
-          'Referer': 'http://localhost:5588'
-        } 
+          'Origin': origin,
+          'Referer': origin
+        }
       }
     );
     const kakaoJson = await kakaoRes.json();
