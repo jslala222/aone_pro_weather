@@ -1,0 +1,2116 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>지역별 날씨 : 웨더아이 - 날씨로부터의 자유, 날씨와 함께하는 행복</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/images/style_13.css">
+<script src="/images/AC_RunActiveContent.js" language="javascript"></script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color:#FFFFFF;
+}
+#apDiv1 {
+	position:absolute;
+	left:34px;
+	top:161px;
+	width:200px;
+	height:89px;
+	z-index:1;
+}
+#hotmenu {
+	position:absolute;
+	left:904px;
+	top:141px;
+	width:100px;
+	height:289px;
+	z-index:1;
+}
+-->
+</style>
+<script language="javascript">
+var z=1;
+var zz=1;
+function menu_view(a){
+
+	for (i=1;i<10;i++ )
+	{
+
+		if(a==i){
+		document.getElementById("bottom"+i).style.display = "block";
+		
+		}else{
+		document.getElementById("bottom"+i).style.display = "none"; 
+
+		}
+	}	
+
+}
+function showthree(divname)
+{
+
+	if(z == divname && document.getElementById("t"+z).style.display=='none' ){document.getElementById("t"+z).style.display='block';document.getElementById("plus"+z).src = "/forecast/world/images/t11.gif";z = divname;exit;}
+
+	
+	var i;
+	for(i=1;i<12;i++){
+	if(i == divname){
+   document.getElementById("t"+i).style.display='block';
+   document.getElementById("plus"+i).src = "/forecast/world/images/t11.gif";
+		
+		if(z == i){	document.getElementById("t"+i).style.display='none';
+		document.getElementById("plus"+i).src = "/forecast/world/images/t1.gif";}
+		
+		z = i;
+
+
+	}else{
+   document.getElementById("t"+i).style.display='none';
+   document.getElementById("plus"+i).src = "/forecast/world/images/t1.gif";
+
+	}
+
+	}
+
+	
+}
+function hidethree(divname)
+{
+
+	var i;
+	for(i=1;i<12;i++){
+   document.getElementById("t"+i).style.display='none';
+}
+}
+</script>
+						<script language="javascript" type="text/javascript">
+function TD_ch(num) {
+    var TD_block = "Tab"+num;
+    var TDname1 = "TD"+num;
+
+
+    for(i=1;i<12;i++){
+        var TD_num = "Tab"+i;     
+ var TDname2 = "TD"+i;    
+        document.getElementById(TD_num).style.display="none";    
+ document.getElementById(TDname2).style.backgroundColor="#eaecee";  
+ document.getElementById(TDname2).style.fontWeight="bold";
+    }
+    document.getElementById(TD_block).style.display="block";
+    document.getElementById(TDname1).style.backgroundColor="#ffffff"; 
+    document.getElementById(TDname1).style.fontWeight="bold";   
+
+}
+
+ 
+
+</script>
+<style type="text/css">
+<!--
+.f11 {  font-size: 11pt; line-height: 140%;}
+//-->
+
+</style>
+
+</head>
+<body onload="rtc('rtc_form.RTC');javascript:TD_ch(1);">
+<div style="visibility:hidden;position:absolute;" height="0">
+	<ul>
+		<li><a href="#menu">메뉴 바로가기</a></li>
+		<li><a href="#contents">내용 바로가기</a></li>
+	</ul>
+</div>
+<div id="apDiv1">
+	
+    <script language="javascript">
+<!-- JavaScript
+
+function rtc()
+{
+  var type, i, top, obj, clocks;  document.login.checksaveid.checked = ((document.login.id.value = getCookie("saveid")) != "");  clocks = new Array();
+  clocks.str_ampm   = new Array('AM', 'PM');
+  if (top > 0) {
+    document.chk_clocks = clocks;
+    chk_clock();
+  }
+}
+
+function chk_clock()
+{
+  var i, clocks, str1, str2, ampm, now;
+  var year, month, day, hour, min, sec;
+  clocks = document.chk_clocks;
+  for (i = 0; i < clocks.length; i += 2) {
+	ampm = 0;
+	obj  = clocks[i];
+	now  = new Date();
+	year = now.getYear();
+	month = now.getMonth()+1;
+	day = now.getDate();
+        hour = now.getHours();
+		if (hour >= 12) ampm = 1;
+		if (hour == 0) hour = 12;
+		if (hour >= 13) hour -= 12;
+        min = now.getMinutes();
+        sec = now.getSeconds();
+	str1 = ((month<10) ? '0'+ month:month) +'.'+ ((day<10) ? '0'+ day:day);
+	str2 = ((hour<10) ? '0'+ hour:hour) +':'+ ((min<10) ? '0'+ min:min) +':'+ ((sec<10) ? '0'+ sec:sec);
+	obj.value = str1 +' '+ str2 +' '+ clocks.str_ampm[ampm];
+  }
+  window.setTimeout("chk_clock();");
+}
+
+// - JavaScript-->
+</script>
+
+
+    <script language="javascript">
+    
+function setCookie (name, value, expires) {
+  document.cookie = name + "=" + escape (value) +
+    "; path=/; expires=" + expires.toGMTString();
+}
+
+function getCookie(Name) {
+  var search = Name + "="
+  if (document.cookie.length > 0) { // 쿠키가 설정되어 있다면
+    offset = document.cookie.indexOf(search)
+    if (offset != -1) { // 쿠키가 존재하면
+      offset += search.length
+      // set index of beginning of value
+      end = document.cookie.indexOf(";", offset)
+      // 쿠키 값의 마지막 위치 인덱스 번호 설정
+      if (end == -1)
+        end = document.cookie.length
+      return unescape(document.cookie.substring(offset, end))
+    }
+  }
+  return "";
+}
+function saveid(form) {
+  var expdate = new Date();
+  // 기본적으로 30일동안 기억하게 함. 일수를 조절하려면 * 30에서 숫자를 조절하면 됨
+  if (form.checksaveid.checked)
+    expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 30); // 30일
+  else
+    expdate.setTime(expdate.getTime() - 1); // 쿠키 삭제조건
+  setCookie("saveid", form.id.value, expdate);
+}
+function getid(form) {
+  form.checksaveid.checked = ((form.id.value = getCookie("saveid")) != "");
+}
+
+
+</script>
+
+
+<form name=login method=post action='../member/check.php'>
+   <table width="175" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="110" height="24" valign="top">
+				<input type="text" name="id" id="textfield" style="width:99px;" />
+			</td>
+			<td width="65" valign="top" style="font-size:11px; color:#ffffff">
+            <input name="url" type="hidden" STYLE="WIDTH:100PX;HEIGHT:18PX;" value="">
+				<input type="checkbox" name="checksaveid" onClick="saveid(this.form)" />
+				ID 저장 </td>
+		</tr>
+		<tr>
+			<td height="18" valign="top">
+				<input type="password" name="pwd" id="textfield2" style="width:99px;" onkeypress="if(event.keyCode==13) login.submit();"/>
+			</td>
+			<td valign="middle" bgcolor="#e7e7e7" align="center" class="menulist"><a href="javascript:login.submit();">로그인</a></td>
+		</tr>
+		<tr>
+			<td height="12" colspan="2"></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="font-size:11px; color:#ffffff"> <a href="../member/member_join01.php"><font color="#ff6600"><b>회원가입</b></font></a><a href="https://www.weatheri.co.kr/member/member_search.php" class="b"><font color="#ffffff">   아이디/비밀번호찾기</font></a></td>
+		</tr>
+	</table>
+    </form>
+    </div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="https://api3.weatheri.co.kr/web/images/sub_back01.gif">
+	<tr>
+		<td width="224" rowspan="2" valign="top"><a href="/index.php"><img src="https://api3.weatheri.co.kr/web/images/sub_01.gif" /></a></td>
+		<td  background="https://api3.weatheri.co.kr/web/images/main_09.gif"></td>
+		<td width="340" align="left">
+			<table width="306" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><a href="/index.php"><img src="/common/images/global_06.gif" border="0" alt="홈으로" /></a><a href="/member/member_join01.php"><img src="/common/images/global_02.gif" border="0" alt="회원가입"
+		/></a><a href="/board/board01.php"><img src="/common/images/global_03.gif" border="0" alt="FAQ" /></a><a href="/board/board02_list.php"><img src="/common/images/global_04.gif" border="0" alt="Q&A" /></a><a href="/board/board03_list.php"><img src="/common/images/global_05.gif" border="0" alt="공지사항" /></a><img src="/common/images/global_07.gif" /></td><td><a href="http://e.weatheri.co.kr/"><img src="/images/e.gif" width="24"></a> <a href="http://j.weatheri.co.kr/"><img src="/images/j.gif" width="24"></a> <a href="http://c.weatheri.co.kr/"><img src="/images/c.gif" width="24"></a></td>
+	</tr>
+</table>
+		</td>
+	
+	</tr>
+	<tr>
+		<td width="900" height="72" colspan="3" valign="top">
+			<div id="header">
+<div class="mainmenu">
+    <div class="left" style="z-index:1;">
+        <ul id="menu">
+            <li><a href="/forecast/forecast01.php?mNum=1&sNum=1" title="예보정보" onmouseover="javascript:menu_view(1);">예보정보</a></li>
+            <!--li><a href="/special/special01.php" title="특보정보" onmouseover="javascript:menu_view(2);">특보정보</a></li-->
+			<li><a href="/special/special01.php" title="특보정보" onmouseover="javascript:menu_view(2);">특보정보</a></li>
+            <li><a href="/leisure/leisure01.php?mNum=1&sNum=1&n=n1"  title="레저스포츠" onmouseover="javascript:menu_view(3);">레저스포츠</a></li>
+            <li><a href="/satellite/satellite01.php" title="영상자료" onmouseover="javascript:menu_view(4);">영상자료</a></li>
+            <li><a href="/bygone/bygone01.php"  title="과거기상" class="" onmouseover="javascript:menu_view(5);">과거기상</a></li>
+            <li><a href="/detail/detail.php"  title="상세예보" class="" onmouseover="javascript:menu_view(6);">상세예보</a></li>
+			<li><a href="/longterm/longterm.php"  title="장기예보" class="" onmouseover="javascript:menu_view(7);">장기예보</a></li>
+			<li><a href="/sms/sms_info.php"  title="SMS서비스" class="" onmouseover="javascript:menu_view(8);">SMS서비스</a></li>
+		</ul>
+						      
+		
+	</div>
+	<div class="bottom" id="bottom1" name="bottom1" style="display:block;z-index:1;">
+        <ul>
+            <li><a href="/forecast/forecast01.php?mNum=1&sNum=1" title="지역별날씨">지역별날씨</a></li>
+            <li><a href="/forecast/forecast02.php?mNum=1&sNum=1"  title="해상예보">해상예보</a></li>
+            <li><a href="/forecast/forecast03.php?mNum=1&aircode=RKSI"  title="공항예보">공항예보</a></li>
+            <li><a href="/forecast/forecast04.php" title="주간예보">주간예보</a></li>
+            <li><a href="/forecast/forecast05.php"  title="월간예보" class="">월간예보</a></li>
+            <li><a href="/forecast/forecast06.php"  title="계절예보" class="">계절예보</a></li>
+			<li><a href="/forecast/forecast07.php"  title="세계예보" class="">세계예보</a></li>
+			<li><a href="/forecast/forecast08.php?mNum=1&ridcode=1"  title="생활지수" class="">생활지수</a></li>
+			<li><a href="/forecast/forecast09.php"  title="자외선지수" class="">자외선</a></li>
+			<li><a href="/forecast/forecast10.php"  title="현재날씨" class="">현재날씨</a></li>
+			<li><a href="/forecast/forecast11.php"  title="슈퍼컴예보" class="">슈퍼컴</a></li>
+			<li><a href="/forecast/forecast12.php"  title="부유먼지예보" class="">부유먼지</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom2" name="bottom2" style="display:none;z-index:1;">
+        <ul>
+            <li><a href="/special/special01.php" title="기상특보">기상특보</a></li>
+            <li><a href="/special/special02.html"  title="태풍정보">태풍정보</a></li>
+            <li><a href="/special/special03.php"  title="지진정보">지진정보</a></li>
+            <li><a href="/special/special04.php" title="황사정보">황사정보</a></li>
+			<li><a href="/special/special05_1.php" title="미세먼지">미세먼지</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom3"  name="bottom3" style="display:none;z-index:1;">
+        <ul>
+            <li><a href="/leisure/leisure01.php" title="고속도로">고속도로</a></li>
+			<li><a href="/leisure/leisure02.php" title="축구">축구</a></li>
+			<li><a href="/leisure/leisure03.php" title="야구">야구</a></li>
+			<li><a href="/leisure/leisure04.php" title="골프">골프</a></li>
+			<li><a href="/leisure/leisure05.php" title="스키">스키</a></li>
+			<li><a href="/leisure/leisure06.php" title="등산">등산</a></li>
+			<li><a href="/leisure/leisure07.php" title="바다낚시">바다낚시</a></li>
+			<li><a href="/leisure/leisure08.php" title="민물낚시">민물낚시</a></li>
+			<li><a href="/leisure/leisure09.php" title="콘도">콘도</a></li>
+			<li><a href="/leisure/leisure10.php" title="휴양림">휴양림</a></li>
+			<li><a href="/leisure/leisure11.php" title="테마파크">테마파크</a></li>
+			<li><a href="/leisure/leisure12.php" title="해수욕장">해수욕장</a></li>
+			<li><a href="/leisure/leisure13.php" title="드라이브">드라이브</a></li>
+			<li><a href="/leisure/leisure14.php" title="래프팅">래프팅</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom4"  name="bottom4" style="display:none;padding:0 0 0 170px" >
+        <ul>
+			<li><a href="/satellite/satellite01.php" title="레이더영상">레이더영상</a></li>
+			<li><a href="/satellite/satellite02.php" title="위성영상">위성영상</a></li>
+			<li><a href="/satellite/satellite03.php" title="황사분석">황사분석</a></li>
+			<li><a href="/satellite/satellite04.php" title="일기도">일기도</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom5" name="bottom5" style="display:none;z-index:1;">
+        <ul>
+			<li><a href="/bygone/bygone01.php" title="일별검색">일별검색</a></li>
+			<li><a href="/bygone/bygone02.php" title="일별통계">일별통계</a></li>
+			<li><a href="/bygone/bygone03.php" title="기상월표">기상월표</a></li>
+			<li><a href="/bygone/bygone04.php" title="월별검색">월별검색</a></li>
+			<li><a href="/bygone/bygone05.php" title="극값검색">극값검색</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/bygone/bygone06.php','small','width=850, height=1000, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/bygone/bygone06.php','small','width=850, height=1000, scrollbars=yes, menubar=yes'); return false">어제날씨</a></li>
+			<li><a href="/bygone/bygone07.php" title="강우집계">강우집계</a></li>
+			<li><a href="/bygone/bygone08.php" title="적설집계">적설집계</a></li>
+			<li><a href="/bygone/bygone09.php" title="한국기후">한국기후</a></li>
+			<li><a href="/bygone/bygone10.php" title="일평년값">일평년값</a></li>
+			<li><a href="/bygone/bygone11.php" title="월평년값">월평년값</a></li>
+			<li><a href="/bygone/bygone12.php" title="세계기후">세계기후</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom6" name="bottom6"  style="display:none;padding:0 0 0 384px">
+        <ul>
+			<li><a href="/detail/detail.php" title="상세예보">상세예보</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom7" name="bottom7" style="display:none;padding:0 0 0 460px">
+        <ul>
+			<li><a href="/longterm/longterm.php" title="장기예보">장기예보</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom8" name="bottom8" style="display:none;padding:0 0 0 330px">
+        <ul>
+			<li><a href="/sms/sms_info.php" title="서비스안내">서비스안내</a></li>
+			<li><a href="/sms/sms_type.php" title="서비스종류와 요금">서비스종류와 요금</a></li>
+			<li><a href="/sms/sms_join01.php" title="서비스신청">서비스신청</a></li>
+			<li><a href="/member/member_edit.php" title="서비스정보">서비스정보</a></li>
+		</ul>
+	</div>
+</div>
+</div>
+		</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="https://api3.weatheri.co.kr/web/images/sub_back02.gif">
+	<tr>
+		<td width="230" rowspan="2" valign="top" background="https://api3.weatheri.co.kr/web/images/main_back05.gif">
+			
+			
+		</td>
+		<td height="39" colspan="2"><img src="https://api3.weatheri.co.kr/web/images/sub_02.gif" /></td>
+	</tr>
+	<tr>
+		<td width="644" height="84" valign="top" background="https://api3.weatheri.co.kr/web/images/sub_03.gif" style="padding-left:30px; padding-top:25px;">
+			<table width="614" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="327" rowspan="2"><img src="images/forecast_tit01.gif" alt="지역별 날씨"/></td>
+					<td colspan="2" align="right" style="padding-right:13px; font-size:11px; color:#666666"><a href="/index.php"><img src="https://api3.weatheri.co.kr/web/images/sub_09.gif" border="0" alt="메인으로"/></a> > 예보정보 > <b>지역별날씨</b></td>
+				</tr>
+				<tr>
+					<td width="60" style="font-size:11px;"><b>기상특보 :</b></td>
+					<td width="189" background="https://api3.weatheri.co.kr/web/images/sub_08.gif" style="padding-bottom:10px; padding-left:18px; padding-right:20px; padding-top:10px;">
+						<table width="180" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td style="font-size:11px;">
+									<marquee direction="left" scrolldelay="180" scrollamount=3>
+									- 2026-04-12 00:00:00 o 없음									</marquee>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<table width="614" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td height="22"></td>
+				</tr>
+			</table>
+		</td>
+		<td rowspan="2" valign="top">
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" background="https://api3.weatheri.co.kr/web/images/bgs1.png">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+				<tr>
+					<td><img src="https://api3.weatheri.co.kr/web/images/sub_left01.gif" /></td>
+				</tr>
+				<tr>
+					<td height="132" background="https://api3.weatheri.co.kr/web/images/sub_left03.gif">
+						<div id="left">
+	<div class="leisure1" id="leisure1" name="leisure1">
+		<ul>
+            <li><a href="forecast01.php?mNum=1&sNum=1&n=n1" title="지역별날씨">지역별날씨</a></li>
+            <li><a href="forecast03.php?mNum=1&pageNum=1"  title="공항예보">공항예보</a></li>
+            <li><a href="forecast05.php?mNum=1&sNum=1&pageNum=1"  title="월간예보">월간예보</a></li>
+            <li><a href="forecast07.php?mNum=1&sNum=1&pageNum=1" title="세계예보">세계예보</a></li>
+            <li><a href="forecast09.php?mNum=1&sNum=8&pageNum=1"  title="자외선지수" class="">자외선지수</a></li>
+            <li><a href="forecast11.php?mNum=1&sNum=1&pageNum=1"  title="슈퍼컴예보" class="">슈퍼컴예보</a></li>
+		</ul>
+	</div>
+	<div class="leisure2" id="leisure2" name="leisure2">
+		<ul>
+            <li><a href="forecast02.php?mNum=1&sNum=1&ridcode=1&pageNum=1" title="해상예보">해상예보</a></li>
+            <li><a href="forecast04.php?mNum=1&sNum=34&pageNum=1"  title="주간예보">주간예보</a></li>
+            <li><a href="forecast06.php?mNum=1&sNum=8&pageNum=1"  title="계절예보">계절예보</a></li>
+            <li><a href="forecast08.php?mNum=1&sNum=1&pageNum=2" title="생활지수">생활지수</a></li>
+            <li><a href="forecast10.php?mNum=1&sNum=8&pageNum=11"  title="현재날씨" class="">현재날씨</a></li><li><a href="forecast12.php"  title="부유먼지예보" class="">부유먼지예보</a></li>
+		</ul>
+	</div>
+	</div>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="https://api3.weatheri.co.kr/web/images/sub_left02.gif" /></td>
+				</tr>
+			</table>
+		</td>
+		<td height="680" valign="top" bgcolor="#FFFFFF" style="padding-left:30px;">
+			<table width="615" border="0" align="left" cellpadding="0" cellspacing="0"> 
+        <tr> <form name="forecast_search" action="forecast01.php" method="get"> 
+                <td height="85" bgcolor="#ffffff"> 
+                        <!-------------//선택메뉴//---------------> 
+		
+                        <table border="0"  cellpadding="1" cellspacing="1" bgcolor="#eaecee" width="100%"> 
+                <tr>
+                    <td align="center" onclick="javascript:TD_ch(1);" style="cursor:pointer;FONT-WEIGHT: bold;font-size:12px;" bgcolor="#ffffff" id="TD1" height="25" width="9%"><b> 서울경기 </b></td>
+                    <td align="center" onclick="javascript:TD_ch(2);" style="cursor:pointer" bgcolor="#eaecee" id="TD2" height="25" width="9%"><b> 강원영서 </b></td>
+                    <td align="center" onclick="javascript:TD_ch(3);" style="cursor:pointer" bgcolor="#eaecee" id="TD3" height="25" width="9%"><b> 강원영동 </b></td>
+					<td align="center" onclick="javascript:TD_ch(4);" style="cursor:pointer" bgcolor="#eaecee" id="TD4" height="25" width="9%"><b> 충북 </b></td>
+					<td align="center" onclick="javascript:TD_ch(5);" style="cursor:pointer" bgcolor="#eaecee" id="TD5" height="25" width="9%"><b> 충남 </b></td>
+					<td align="center" onclick="javascript:TD_ch(6);" style="cursor:pointer" bgcolor="#eaecee" id="TD6" height="25" width="9%"><b> 전북 </b></td>
+					<td align="center" onclick="javascript:TD_ch(7);" style="cursor:pointer" bgcolor="#eaecee" id="TD7" height="25" width="9%"><b> 전남 </b></td>
+					<td align="center" onclick="javascript:TD_ch(8);" style="cursor:pointer" bgcolor="#eaecee" id="TD8" height="25" width="9%"><b> 경북 </b></td>
+					<td align="center" onclick="javascript:TD_ch(9);" style="cursor:pointer" bgcolor="#eaecee" id="TD9" height="25" width="9%"><b> 경남 </b></td>
+					<td align="center" onclick="javascript:TD_ch(10);" style="cursor:pointer" bgcolor="#eaecee" id="TD10" height="25" width="9%"><b> 제주도 </b></td>
+					<td align="center" onclick="javascript:TD_ch(11);" style="cursor:pointer" bgcolor="#eaecee" id="TD11" height="25" width="9%"><b> 울릉독도 </b></td>
+                </tr>
+            </table>
+
+			
+
+			<div id="Tab1"style="display:block; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202040103&k=1&a_name=%EA%B0%80%ED%8F%89">가평</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0201010109&k=1&a_name=%EA%B0%95%ED%99%94">강화</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202020102&k=1&a_name=%EA%B3%A0%EC%96%91">고양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0201010202&k=1&a_name=%EA%B3%BC%EC%B2%9C">과천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0201010201&k=1&a_name=%EA%B4%91%EB%AA%85">광명</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203020105&k=1&a_name=%EA%B4%91%EC%A3%BC">광주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202040101&k=1&a_name=%EA%B5%AC%EB%A6%AC">구리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0201010204&k=1&a_name=%EA%B5%B0%ED%8F%AC">군포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202010101&k=1&a_name=%EA%B9%80%ED%8F%AC">김포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202040102&k=1&a_name=%EB%82%A8%EC%96%91%EC%A3%BC">남양주</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202030101&k=1&a_name=%EB%8F%99%EB%91%90%EC%B2%9C">동두천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0204010101&k=1&a_name=%EB%B0%B1%EB%A0%B9%EB%8F%84">백령도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203010101&k=1&a_name=%EB%B6%80%EC%B2%9C">부천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0101010000&k=1&a_name=%EC%84%9C%EC%9A%B8">서울</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203020101&k=1&a_name=%EC%84%B1%EB%82%A8">성남</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203010201&k=1&a_name=%EC%88%98%EC%9B%90">수원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203010103&k=1&a_name=%EC%8B%9C%ED%9D%A5">시흥</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203010102&k=1&a_name=%EC%95%88%EC%82%B0">안산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203020107&k=1&a_name=%EC%95%88%EC%84%B1">안성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0201010205&k=1&a_name=%EC%95%88%EC%96%91">안양</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202020104&k=1&a_name=%EC%96%91%EC%A3%BC">양주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202040104&k=1&a_name=%EC%96%91%ED%8F%89">양평</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203020104&k=1&a_name=%EC%97%AC%EC%A3%BC">여주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202030102&k=1&a_name=%EC%97%B0%EC%B2%9C">연천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203010202&k=1&a_name=%EC%98%A4%EC%82%B0">오산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203020106&k=1&a_name=%EC%9A%A9%EC%9D%B8">용인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0201010203&k=1&a_name=%EC%9D%98%EC%99%95">의왕</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202020101&k=1&a_name=%EC%9D%98%EC%A0%95%EB%B6%80">의정부</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203020103&k=1&a_name=%EC%9D%B4%EC%B2%9C">이천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0201010100&k=1&a_name=%EC%9D%B8%EC%B2%9C">인천</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202020103&k=1&a_name=%ED%8C%8C%EC%A3%BC">파주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203010203&k=1&a_name=%ED%8F%89%ED%83%9D">평택</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0202030103&k=1&a_name=%ED%8F%AC%EC%B2%9C">포천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203020102&k=1&a_name=%ED%95%98%EB%82%A8">하남</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0203010104&k=1&a_name=%ED%99%94%EC%84%B1">화성</a>
+                        </td> 
+                    										                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab2"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301020101&k=2&a_name=%EC%96%91%EA%B5%AC">양구</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301060101&k=2&a_name=%EC%98%81%EC%9B%94">영월</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301050101&k=2&a_name=%EC%9B%90%EC%A3%BC">원주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301020102&k=2&a_name=%EC%9D%B8%EC%A0%9C">인제</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301060103&k=2&a_name=%EC%A0%95%EC%84%A0">정선</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301010101&k=2&a_name=%EC%B2%A0%EC%9B%90">철원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301030101&k=2&a_name=%EC%B6%98%EC%B2%9C">춘천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301060102&k=2&a_name=%ED%8F%89%EC%B0%BD">평창</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301040101&k=2&a_name=%ED%99%8D%EC%B2%9C">홍천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301010102&k=2&a_name=%ED%99%94%EC%B2%9C">화천</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0301050102&k=2&a_name=%ED%9A%A1%EC%84%B1">횡성</a>
+                        </td> 
+                    										                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab3"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0401020101&k=3&a_name=%EA%B0%95%EB%A6%89">강릉</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0401010102&k=3&a_name=%EA%B3%A0%EC%84%B1">고성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0401030101&k=3&a_name=%EB%8C%80%EA%B4%80%EB%A0%B9">대관령</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0401050101&k=3&a_name=%EB%8F%99%ED%95%B4">동해</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0401050102&k=3&a_name=%EC%82%BC%EC%B2%99">삼척</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0401010101&k=3&a_name=%EC%86%8D%EC%B4%88">속초</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0401010103&k=3&a_name=%EC%96%91%EC%96%91">양양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0401040101&k=3&a_name=%ED%83%9C%EB%B0%B1">태백</a>
+                        </td> 
+                    										<td></td><td></td>                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab4"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601030103&k=4&a_name=%EA%B4%B4%EC%82%B0">괴산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601020102&k=4&a_name=%EB%8B%A8%EC%96%91">단양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601040101&k=4&a_name=%EB%B3%B4%EC%9D%80">보은</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601050102&k=4&a_name=%EC%98%81%EB%8F%99">영동</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601050101&k=4&a_name=%EC%98%A5%EC%B2%9C">옥천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601010103&k=4&a_name=%EC%9D%8C%EC%84%B1">음성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601020101&k=4&a_name=%EC%A0%9C%EC%B2%9C">제천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601030104&k=4&a_name=%EC%A6%9D%ED%8F%89">증평</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601010102&k=4&a_name=%EC%A7%84%EC%B2%9C">진천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601030101&k=4&a_name=%EC%B2%AD%EC%A3%BC">청주</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601050103&k=4&a_name=%EC%B6%94%ED%92%8D%EB%A0%B9">추풍령</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0601010101&k=4&a_name=%EC%B6%A9%EC%A3%BC">충주</a>
+                        </td> 
+                    										                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab5"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702050103&k=5&a_name=%EA%B3%84%EB%A3%A1">계룡</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702040101&k=5&a_name=%EA%B3%B5%EC%A3%BC">공주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702050102&k=5&a_name=%EA%B8%88%EC%82%B0">금산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702050101&k=5&a_name=%EB%85%BC%EC%82%B0">논산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702010104&k=5&a_name=%EB%8B%B9%EC%A7%84">당진</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0701010100&k=5&a_name=%EB%8C%80%EC%A0%84">대전</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702020101&k=5&a_name=%EB%B3%B4%EB%A0%B9">보령</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702040201&k=5&a_name=%EB%B6%80%EC%97%AC">부여</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702010101&k=5&a_name=%EC%84%9C%EC%82%B0">서산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702020102&k=5&a_name=%EC%84%9C%EC%B2%9C">서천</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702040102&k=5&a_name=%EC%84%B8%EC%A2%85">세종</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702030102&k=5&a_name=%EC%95%84%EC%82%B0">아산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702030103&k=5&a_name=%EC%98%88%EC%82%B0">예산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702030101&k=5&a_name=%EC%B2%9C%EC%95%88">천안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702040202&k=5&a_name=%EC%B2%AD%EC%96%91">청양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702010103&k=5&a_name=%ED%83%9C%EC%95%88">태안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0702010102&k=5&a_name=%ED%99%8D%EC%84%B1">홍성</a>
+                        </td> 
+                    										                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab6"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801020101&k=6&a_name=%EA%B3%A0%EC%B0%BD">고창</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801010101&k=6&a_name=%EA%B5%B0%EC%82%B0">군산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801010102&k=6&a_name=%EA%B9%80%EC%A0%9C">김제</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801060101&k=6&a_name=%EB%82%A8%EC%9B%90">남원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801050102&k=6&a_name=%EB%AC%B4%EC%A3%BC">무주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801020102&k=6&a_name=%EB%B6%80%EC%95%88">부안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801060102&k=6&a_name=%EC%88%9C%EC%B0%BD">순창</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801030103&k=6&a_name=%EC%99%84%EC%A3%BC">완주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801030102&k=6&a_name=%EC%9D%B5%EC%82%B0">익산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801070101&k=6&a_name=%EC%9E%84%EC%8B%A4">임실</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801050103&k=6&a_name=%EC%9E%A5%EC%88%98">장수</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801030101&k=6&a_name=%EC%A0%84%EC%A3%BC">전주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801040101&k=6&a_name=%EC%A0%95%EC%9D%8D">정읍</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0801050101&k=6&a_name=%EC%A7%84%EC%95%88">진안</a>
+                        </td> 
+                    										                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab7"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901030101&k=7&a_name=%EA%B0%95%EC%A7%84">강진</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901070101&k=7&a_name=%EA%B3%A0%ED%9D%A5">고흥</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901080102&k=7&a_name=%EA%B3%A1%EC%84%B1">곡성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901060102&k=7&a_name=%EA%B4%91%EC%96%91">광양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901010100&k=7&a_name=%EA%B4%91%EC%A3%BC">광주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901080103&k=7&a_name=%EA%B5%AC%EB%A1%80">구례</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901010301&k=7&a_name=%EB%82%98%EC%A3%BC">나주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901010302&k=7&a_name=%EB%8B%B4%EC%96%91">담양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901020101&k=7&a_name=%EB%AA%A9%ED%8F%AC">목포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901010201&k=7&a_name=%EB%AC%B4%EC%95%88">무안</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901060103&k=7&a_name=%EB%B3%B4%EC%84%B1">보성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901080101&k=7&a_name=%EC%88%9C%EC%B2%9C">순천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901020103&k=7&a_name=%EC%8B%A0%EC%95%88">신안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901060101&k=7&a_name=%EC%97%AC%EC%88%98">여수</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901010203&k=7&a_name=%EC%98%81%EA%B4%91">영광</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901020102&k=7&a_name=%EC%98%81%EC%95%94">영암</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901040101&k=7&a_name=%EC%99%84%EB%8F%84">완도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901010304&k=7&a_name=%EC%9E%A5%EC%84%B1">장성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901050101&k=7&a_name=%EC%9E%A5%ED%9D%A5">장흥</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901100000&k=7&a_name=%EC%A7%84%EB%8F%84">진도</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901010202&k=7&a_name=%ED%95%A8%ED%8F%89">함평</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901030102&k=7&a_name=%ED%95%B4%EB%82%A8">해남</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901010303&k=7&a_name=%ED%99%94%EC%88%9C">화순</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0901090101&k=7&a_name=%ED%9D%91%EC%82%B0%EB%8F%84">흑산도</a>
+                        </td> 
+                    										                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab8"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002100102&k=8&a_name=%EA%B2%BD%EC%82%B0">경산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002030102&k=8&a_name=%EA%B2%BD%EC%A3%BC">경주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002090104&k=8&a_name=%EA%B3%A0%EB%A0%B9">고령</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002090102&k=8&a_name=%EA%B5%AC%EB%AF%B8">구미</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002090103&k=8&a_name=%EA%B5%B0%EC%9C%84">군위</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002090101&k=8&a_name=%EA%B9%80%EC%B2%9C">김천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1001010108&k=8&a_name=%EB%8B%AC%EC%84%B1">달성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1001010100&k=8&a_name=%EB%8C%80%EA%B5%AC">대구</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002060102&k=8&a_name=%EB%AC%B8%EA%B2%BD">문경</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002050101&k=8&a_name=%EB%B4%89%ED%99%94">봉화</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002110101&k=8&a_name=%EC%83%81%EC%A3%BC">상주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002090105&k=8&a_name=%EC%84%B1%EC%A3%BC">성주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002070101&k=8&a_name=%EC%95%88%EB%8F%99">안동</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002020101&k=8&a_name=%EC%98%81%EB%8D%95">영덕</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002040102&k=8&a_name=%EC%98%81%EC%96%91">영양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002040101&k=8&a_name=%EC%98%81%EC%A3%BC">영주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002100101&k=8&a_name=%EC%98%81%EC%B2%9C">영천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002060103&k=8&a_name=%EC%98%88%EC%B2%9C">예천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002010101&k=8&a_name=%EC%9A%B8%EC%A7%84">울진</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002080101&k=8&a_name=%EC%9D%98%EC%84%B1">의성</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002100103&k=8&a_name=%EC%B2%AD%EB%8F%84">청도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002070102&k=8&a_name=%EC%B2%AD%EC%86%A1">청송</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002100104&k=8&a_name=%EC%B9%A0%EA%B3%A1">칠곡</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1002030101&k=8&a_name=%ED%8F%AC%ED%95%AD">포항</a>
+                        </td> 
+                    										                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab9"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202040101&k=9&a_name=%EA%B1%B0%EC%A0%9C">거제</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202090101&k=9&a_name=%EA%B1%B0%EC%B0%BD">거창</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202030103&k=9&a_name=%EA%B3%A0%EC%84%B1">고성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202010104&k=9&a_name=%EA%B9%80%ED%95%B4">김해</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202050101&k=9&a_name=%EB%82%A8%ED%95%B4">남해</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202020101&k=9&a_name=%EB%B0%80%EC%96%91">밀양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1101010100&k=9&a_name=%EB%B6%80%EC%82%B0">부산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202030102&k=9&a_name=%EC%82%AC%EC%B2%9C">사천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202070101&k=9&a_name=%EC%82%B0%EC%B2%AD">산청</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202020201&k=9&a_name=%EC%96%91%EC%82%B0">양산</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1201010100&k=9&a_name=%EC%9A%B8%EC%82%B0">울산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202020102&k=9&a_name=%EC%9D%98%EB%A0%B9">의령</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202060101&k=9&a_name=%EC%A7%84%EC%A3%BC">진주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202020104&k=9&a_name=%EC%B0%BD%EB%85%95">창녕</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202010101&k=9&a_name=%EC%B0%BD%EC%9B%90">창원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202030101&k=9&a_name=%ED%86%B5%EC%98%81">통영</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202060102&k=9&a_name=%ED%95%98%EB%8F%99">하동</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202020103&k=9&a_name=%ED%95%A8%EC%95%88">함안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202080101&k=9&a_name=%ED%95%A8%EC%96%91">함양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1202080102&k=9&a_name=%ED%95%A9%EC%B2%9C">합천</a>
+                        </td> 
+                    </tr>										                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab10"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1301040101&k=10&a_name=%EA%B3%A0%EC%82%B0">고산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1301020101&k=10&a_name=%EC%84%9C%EA%B7%80%ED%8F%AC">서귀포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1301010102&k=10&a_name=%EC%84%B1%EC%82%B0%ED%8F%AC">성산포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1301030201&k=10&a_name=%EC%84%B1%ED%8C%90%EC%95%85">성판악</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=1301030101&k=10&a_name=%EC%A0%9C%EC%A3%BC">제주</a>
+                        </td> 
+                    										<td></td><td></td><td></td><td></td><td></td>                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab11"style="display:none; zoom:1; overflow:auto; height:85px">
+			<div id="myDiv" style="zoom:1;" class="menulist" bgcolor="#ffffff">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%" bgcolor="#ffffff" height="45"> 
+					<tr>                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0501010102&k=11&a_name=%EB%8F%85%EB%8F%84">독도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="10%">
+                            <a href="forecast01.php?rid=0501010101&k=11&a_name=%EC%9A%B8%EB%A6%89%EB%8F%84">울릉도</a>
+                        </td> 
+                    										<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>                </table> 
+            </div> 
+			</div>
+			                        <!-------------//선택메뉴//---------------> 
+                </td> 
+        </tr> 
+        <tr> 
+                <td height="5"></td> 
+        </tr> 
+		     
+		 <tr> 
+                <td>
+				<table width="615" border="0" align="left" cellpadding="0" cellspacing="0"> 
+            
+             <tr> <form name="forecast_search" action="asia.php" method="get"> 
+                <td>
+                        <!--------------------//도시명//----------------------> 
+                        <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                                <tr> 
+                                        <td width="70%"><img src="world/images/ico01.gif" alt="메뉴"><b><font color="#ff6600">서울 </font></b></td> 
+                                </tr> 
+                        </table> 
+                        <!--------------------//도시명//----------------------> 
+                </td> 
+        </tr> </form>
+        <tr> 
+                <td height="10"></td> 
+        </tr> 
+        <tr> 
+                <td> 
+                        <!--------------------//주간날씨//----------------------> 
+			
+                        <table width="615" border="0" cellpadding="1" cellspacing="1" bgcolor="#BCBFC2"> 
+                                <tr align="center" bgcolor="#EBF1DE">
+				                                        <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                         <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                         <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                         <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                         <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                 </tr> 
+                                <tr bgcolor="#FFFFFF" align="center">
+				                                     <td onclick='showthree("1")' style="cursor:pointer">
+												<table width="100%" border="0" cellpadding="0" cellspacing="0">
+												<tr align="center">
+											<td width="45%"></td>
+											<td width="50%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t11.gif" valign="bottom" id="plus1">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                            <td onclick='showthree("2")' style="cursor:pointer">
+												<table width="100%" border="0" cellpadding="0" cellspacing="0">
+												<tr align="center">
+											<td width="45%"></td>
+											<td width="50%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus2">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                            <td onclick='showthree("3")' style="cursor:pointer">
+												<table width="100%" border="0" cellpadding="0" cellspacing="0">
+												<tr align="center">
+											<td width="45%"></td>
+											<td width="50%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus3">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                            <td onclick='showthree("4")' style="cursor:pointer">
+												<table width="100%" border="0" cellpadding="0" cellspacing="0">
+												<tr align="center">
+											<td width="45%"></td>
+											<td width="50%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus4">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                            <td onclick='showthree("5")' style="cursor:pointer">
+												<table width="100%" border="0" cellpadding="0" cellspacing="0">
+												<tr align="center">
+											<td width="45%"></td>
+											<td width="50%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus5">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                       </tr> 
+                        </table>
+
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t1" name="t1" style="display:block;"						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"><img src="./world/images/t2.gif"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center" height="10">
+										<td><font color="#7F7F7F">풍향</font></td>
+				                                </tr--> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+										 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+								
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t2" name="t2" style="display:none;">						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"><img src="./world/images/t2.gif"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center" height="10">
+										<td><font color="#7F7F7F">풍향</font></td>
+				                                </tr--> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+										 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+								
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t3" name="t3" style="display:none;">						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"><img src="./world/images/t2.gif"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center" height="10">
+										<td><font color="#7F7F7F">풍향</font></td>
+				                                </tr--> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+										 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+								
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t4" name="t4" style="display:none;">						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"><img src="./world/images/t2.gif"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center" height="10">
+										<td><font color="#7F7F7F">풍향</font></td>
+				                                </tr--> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+										 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+								
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t5" name="t5" style="display:none;">						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"><img src="./world/images/t2.gif"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center" height="10">
+										<td><font color="#7F7F7F">풍향</font></td>
+				                                </tr--> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+										 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+								
+                        </table>
+												<br>
+
+						  <table width="615" border="0" cellpadding="1" cellspacing="1" bgcolor="#BCBFC2"> 
+                                <tr align="center" bgcolor="#EBF1DE">
+				                                        <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                         <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                         <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                         <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                         <td width="20%" height="25" bgcolor="#EBF1DE"><b></td>                                 </tr> 
+                                <tr bgcolor="#FFFFFF" align="center">
+				                                      <td onclick='showthree("6")' style="cursor:pointer">
+											<table width="99%" border="0" cellpadding="0" cellspacing="0">
+											<tr align="center">
+											<td width="50%"></td>
+											<td width="45%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus6">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                             <td onclick='showthree("7")' style="cursor:pointer">
+											<table width="99%" border="0" cellpadding="0" cellspacing="0">
+											<tr align="center">
+											<td width="50%"></td>
+											<td width="45%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus7">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                             <td onclick='showthree("8")' style="cursor:pointer">
+											<table width="99%" border="0" cellpadding="0" cellspacing="0">
+											<tr align="center">
+											<td width="50%"></td>
+											<td width="45%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus8">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                             <td onclick='showthree("9")' style="cursor:pointer">
+											<table width="99%" border="0" cellpadding="0" cellspacing="0">
+											<tr align="center">
+											<td width="50%"></td>
+											<td width="45%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus9">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                             <td onclick='showthree("10")' style="cursor:pointer">
+											<table width="99%" border="0" cellpadding="0" cellspacing="0">
+											<tr align="center">
+											<td width="50%"></td>
+											<td width="45%"></td>
+											<td width="5%"></td>
+											</tr>
+											<tr align="center">
+											<td width="50%"><img src="https://api3.weatheri.co.kr/web/images/icon_2013_01/.png" border="0" alt="" width="55"></td>
+											<td class="f11" colspan="2" width="50%"><b><font color="#FF0000">˚C</font><br><b><font color="blue">˚C</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr align="center">
+											<td><font color="7F7F7F"> m/s</font></td>
+											<td colspan="2"><font color="7F7F7F"> mm</font></td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											<tr>
+											<td colspan="3" width="95%">
+																							</td>
+												<td align="right" width="5%" height="15"><img src="./world/images/t1.gif" valign="bottom" id="plus10">
+												</td>
+											</tr>
+											<tr>
+											<td colspan="3" height="2"></td>
+											</tr>
+											
+											</table>
+										</td>
+                                                                       </tr> 
+                        </table> 
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t6" name="t6" style="display:none;">
+						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0">
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"><img src="./world/images/t2.gif"></td>
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t7" name="t7" style="display:none;">
+						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0">
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%" bgcolor="#FFFFFF"><img src="./world/images/t2.gif"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t8" name="t8" style="display:none;">
+						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0">
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"><img src="./world/images/t2.gif"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t9" name="t9" style="display:none;">
+						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0">
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"><img src="./world/images/t2.gif"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t10" name="t10" style="display:none;">
+						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0">
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"><img src="./world/images/t2.gif"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+                        </table>
+												<table width="615" border="0" cellpadding="0" cellspacing="1" bgcolor="#BCBFC2" id="t11" name="t11" style="display:none;">
+						<tr align="center" bgcolor="#FFFFFF">
+									<td width="615" colspan="9">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0">
+										<tr align="center">
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%" bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="20%"  bgcolor="#FFFFFF"></td>
+										<td width="16%"  bgcolor="#FFFFFF" style="padding-left:20px"></td>
+										<td width="4%"  bgcolor="#FFFFFF" align="right"></td>
+										</tr>
+										</table>
+
+									</td>
+                                </tr> 
+                                <tr align="center" bgcolor="#EBF1DE">
+									<td width="20%" height="25" bgcolor="#FDEADA"><b></td>
+				                                </tr> 
+                                <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>날씨</td>
+							                                </tr> 
+								      <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>기온(˚C)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td>강수량(mm)</td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">풍속(m/s)</font></td>
+				                                </tr> 
+								 <tr bgcolor="#FFFFFF" align="center" height="25">
+										<td><font color="#7F7F7F">습도(%)</font></td>
+				                                </tr>
+								 <!--tr bgcolor="#FFFFFF" align="center">
+										<td><font color="#7F7F7F"></font></td>
+				                                        <td><font color="#7F7F7F">
+										일출</td><td> :</td><td>일몰</td><td>:</font>											
+										</td>
+										 <td><font color="#7F7F7F">
+										월출</td><td> </td><td>월몰</td><td></font>
+											
+										</td>
+                                       
+                                </tr--> 
+                        </table>
+												<!--br>
+						<script language="JavaScript"> 
+ <!-- 
+ viewFlash("images/menu01.swf?pageNum=1","_FLASH","width=615,height=55,align=middle,allowScriptAccess=sameDomain,bgcolor=#FFFFFF,menu=false,quality=high"); 
+ //--> 
+ <!--/script-->
+                        <!--------------------//주간날씨//----------------------> 
+                </td> 
+        </tr> 
+    </table>
+                </td> 
+        </tr> 
+   
+
+</table>        </td> 
+        </tr> 
+   	<tr background="/images/bg5.png">
+		<td valign="top">&nbsp;</td>
+		<td valign="top" style="padding-bottom:50px;"><img src="/images/sub_04.gif" width="674" height="74" /></td>
+		<td valign="top">&nbsp;</td>
+	</tr>
+
+</table> 
+<div id="hotmenu">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<div id="right">
+	<div class="hotmenu" id="hotmenu" name="hotmenu">
+		<ul>
+			<li><br><br></li>
+            <li><a href="http://www.weatheri.co.kr/special/special01.php" title="기상특보">1 기상특보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/longterm/longterm.php" title="장기예보">2 장기예보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/sms/sms_info.php" title="SMS서비스">3 SMS서비스</a></li>
+			            <li><a href="http://www.weatheri.co.kr/special/special04_01.php" title="황사정보">4 황사정보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/forecast/forecast07.php" title="세계예보">5 세계예보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/detail/detail.php" title="상세예보">6 상세예보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/leisure/leisure04.php?mNum=1&sNum=34&pageNum=1" title="골프장날씨">7 골프장날씨</a></li>
+			            <li><a href="http://www.weatheri.co.kr/forecast/precip.php" title="슈퍼컴예보">8 슈퍼컴예보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/forecast/forecast01.php?mNum=1&sNum=1" title="지역별날씨">9 지역별날씨</a></li>
+					</ul>
+	</div>
+			<div class="hotmenu2" id="hotmenu2" name="hotmenu2">
+		<ul>
+			<li><br><br></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful05.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful05.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">조석표</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful02.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful02.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">일출몰시간</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful06.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful06.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">양음력변환</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful07.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful07.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">섭씨화씨변환</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful03.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful03.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">체감온도</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful04.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful04.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">불쾌지수</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/useful/useful08_01.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful08_01.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">날씨속담</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/useful/useful09.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful09.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">기상용어</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/useful/useful10.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful10.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">예보용어</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/useful/useful01.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful01.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">아이콘설명</a></li>
+		</ul>
+	</div>
+	</div>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/images/main_back03.gif">
+	<tr>
+		<td height="170" valign="top">
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>웨더아이 - 날씨로부터의 자유, 날씨와 함께하는 행복</title>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<body>
+<table width="903" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="501" height="32" style="padding-left:50px;"><img src="/common/images/footer_01.gif" alt="회사로고"/><a href="/company/company_01.php"><img src="/common/images/footer_02.gif" border="0" alt="회사소개"/></a><a href="/site_map.php"><img src="/common/images/footer_03.gif" border="0" alt="사이트맵"/></a><a href="javascript:;" onClick="MM_openBrWindow('/company/company_pop.php','01','scrollbars=yes,width=650,height=600')"><img src="/common/images/footer_04.gif" border="0" alt="이용약관"/></a></td>
+		<td width="402"><img src="/common/images/footer_05.gif" alt="서울특별시 중구 중림동 브라운스톤서울 101동 2204호 tel:02-704-0030"/></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="padding-top:18px;">
+			<table width="547" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="/images/footer_06_2.gif" alt="주)웨더아이"/><img src="/common/images/footer_06.gif" alt="사업자등록번호:106-86-31498"/><a href="javascript:;" onClick="MM_openBrWindow('/company/company_pop01.php','02','scrollbars=yes,width=650,height=600')"><img src="/common/images/footer_07.gif" border="0" alt="개인정보취급방침"/></a><img src="/common/images/footer_08.gif" alt="이메일주소 무단 수집거부"/></td>
+				</tr>
+				<tr>
+					<td align="right"><img src="/common/images/footer_09.gif" alt="copyright 주)웨더아이"/></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>		</td>
+	</tr>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,2552 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>골프 : 웨더아이 - 날씨로부터의 자유, 날씨와 함께하는 행복</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/images/style_13.css">
+<script src="/images/AC_RunActiveContent.js" language="javascript"></script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color:#FFFFFF;
+}
+#apDiv1 {
+	position:absolute;
+	left:34px;
+	top:161px;
+	width:200px;
+	height:89px;
+	z-index:1;
+}
+#hotmenu {
+	position:absolute;
+	left:904px;
+	top:141px;
+	width:100px;
+	height:289px;
+	z-index:1;
+}
+-->
+</style>
+<script language="javascript">
+function menu_view(a){
+
+	for (i=1;i<9;i++ )
+	{
+
+		if(a==i){
+		document.getElementById("bottom"+i).style.display = "block";
+		}else{
+		document.getElementById("bottom"+i).style.display = "none"; 
+		}
+	}	
+
+}
+</script>
+
+</head>
+<body onload="rtc('rtc_form.RTC');">
+<div style="visibility:hidden;position:absolute;" height="0">
+	<ul>
+		<li><a href="#menu">메뉴 바로가기</a></li>
+		<li><a href="#contents">내용 바로가기</a></li>
+	</ul>
+</div>
+<div id="apDiv1">
+	
+    <script language="javascript">
+<!-- JavaScript
+
+function rtc()
+{
+  var type, i, top, obj, clocks;  document.login.checksaveid.checked = ((document.login.id.value = getCookie("saveid")) != "");  clocks = new Array();
+  clocks.str_ampm   = new Array('AM', 'PM');
+  if (top > 0) {
+    document.chk_clocks = clocks;
+    chk_clock();
+  }
+}
+
+function chk_clock()
+{
+  var i, clocks, str1, str2, ampm, now;
+  var year, month, day, hour, min, sec;
+  clocks = document.chk_clocks;
+  for (i = 0; i < clocks.length; i += 2) {
+	ampm = 0;
+	obj  = clocks[i];
+	now  = new Date();
+	year = now.getYear();
+	month = now.getMonth()+1;
+	day = now.getDate();
+        hour = now.getHours();
+		if (hour >= 12) ampm = 1;
+		if (hour == 0) hour = 12;
+		if (hour >= 13) hour -= 12;
+        min = now.getMinutes();
+        sec = now.getSeconds();
+	str1 = ((month<10) ? '0'+ month:month) +'.'+ ((day<10) ? '0'+ day:day);
+	str2 = ((hour<10) ? '0'+ hour:hour) +':'+ ((min<10) ? '0'+ min:min) +':'+ ((sec<10) ? '0'+ sec:sec);
+	obj.value = str1 +' '+ str2 +' '+ clocks.str_ampm[ampm];
+  }
+  window.setTimeout("chk_clock();");
+}
+
+// - JavaScript-->
+</script>
+
+
+    <script language="javascript">
+    
+function setCookie (name, value, expires) {
+  document.cookie = name + "=" + escape (value) +
+    "; path=/; expires=" + expires.toGMTString();
+}
+
+function getCookie(Name) {
+  var search = Name + "="
+  if (document.cookie.length > 0) { // 쿠키가 설정되어 있다면
+    offset = document.cookie.indexOf(search)
+    if (offset != -1) { // 쿠키가 존재하면
+      offset += search.length
+      // set index of beginning of value
+      end = document.cookie.indexOf(";", offset)
+      // 쿠키 값의 마지막 위치 인덱스 번호 설정
+      if (end == -1)
+        end = document.cookie.length
+      return unescape(document.cookie.substring(offset, end))
+    }
+  }
+  return "";
+}
+function saveid(form) {
+  var expdate = new Date();
+  // 기본적으로 30일동안 기억하게 함. 일수를 조절하려면 * 30에서 숫자를 조절하면 됨
+  if (form.checksaveid.checked)
+    expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 30); // 30일
+  else
+    expdate.setTime(expdate.getTime() - 1); // 쿠키 삭제조건
+  setCookie("saveid", form.id.value, expdate);
+}
+function getid(form) {
+  form.checksaveid.checked = ((form.id.value = getCookie("saveid")) != "");
+}
+
+
+</script>
+
+
+<form name=login method=post action='../member/check.php'>
+   <table width="175" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="110" height="24" valign="top">
+				<input type="text" name="id" id="textfield" style="width:99px;" />
+			</td>
+			<td width="65" valign="top" style="font-size:11px; color:#ffffff">
+            <input name="url" type="hidden" STYLE="WIDTH:100PX;HEIGHT:18PX;" value="">
+				<input type="checkbox" name="checksaveid" onClick="saveid(this.form)" />
+				ID 저장 </td>
+		</tr>
+		<tr>
+			<td height="18" valign="top">
+				<input type="password" name="pwd" id="textfield2" style="width:99px;" onkeypress="if(event.keyCode==13) login.submit();"/>
+			</td>
+			<td valign="middle" bgcolor="#e7e7e7" align="center" class="menulist"><a href="javascript:login.submit();">로그인</a></td>
+		</tr>
+		<tr>
+			<td height="12" colspan="2"></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="font-size:11px; color:#ffffff"> <a href="../member/member_join01.php"><font color="#ff6600"><b>회원가입</b></font></a><a href="https://www.weatheri.co.kr/member/member_search.php" class="b"><font color="#ffffff">   아이디/비밀번호찾기</font></a></td>
+		</tr>
+	</table>
+    </form>
+    </div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/images/sub_back01.gif">
+	<tr>
+		<td width="224" rowspan="2" valign="top"><a href="/index.php"><img src="/images/sub_01.gif" alt="홈으로" /></a></td>
+		<td width="340" background="/images/main_09.gif"></td>
+		<td width="340" align="right">
+			<table width="306" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><a href="/index.php"><img src="/common/images/global_06.gif" border="0" alt="홈으로" /></a><a href="/member/member_join01.php"><img src="/common/images/global_02.gif" border="0" alt="회원가입"
+		/></a><a href="/board/board01.php"><img src="/common/images/global_03.gif" border="0" alt="FAQ" /></a><a href="/board/board02_list.php"><img src="/common/images/global_04.gif" border="0" alt="Q&A" /></a><a href="/board/board03_list.php"><img src="/common/images/global_05.gif" border="0" alt="공지사항" /></a><img src="/common/images/global_07.gif" /></td><td><a href="http://e.weatheri.co.kr/"><img src="/images/e.gif" width="24"></a> <a href="http://j.weatheri.co.kr/"><img src="/images/j.gif" width="24"></a> <a href="http://c.weatheri.co.kr/"><img src="/images/c.gif" width="24"></a></td>
+	</tr>
+</table>
+		</td>
+		<td rowspan="2">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="680" height="72" colspan="2" valign="top">
+			<!--mainmenu-->
+			<div id="header">
+<div class="mainmenu">
+    <div class="left" style="z-index:1;">
+        <ul id="menu">
+            <li><a href="/forecast/forecast01.php?mNum=1&sNum=1" title="예보정보" onmouseover="javascript:menu_view(1);">예보정보</a></li>
+            <!--li><a href="/special/special01.php" title="특보정보" onmouseover="javascript:menu_view(2);">특보정보</a></li-->
+			<li><a href="/special/special01.php" title="특보정보" onmouseover="javascript:menu_view(2);">특보정보</a></li>
+            <li><a href="/leisure/leisure01.php?mNum=1&sNum=1&n=n1"  title="레저스포츠" onmouseover="javascript:menu_view(3);">레저스포츠</a></li>
+            <li><a href="/satellite/satellite01.php" title="영상자료" onmouseover="javascript:menu_view(4);">영상자료</a></li>
+            <li><a href="/bygone/bygone01.php"  title="과거기상" class="" onmouseover="javascript:menu_view(5);">과거기상</a></li>
+            <li><a href="/detail/detail.php"  title="상세예보" class="" onmouseover="javascript:menu_view(6);">상세예보</a></li>
+			<li><a href="/longterm/longterm.php"  title="장기예보" class="" onmouseover="javascript:menu_view(7);">장기예보</a></li>
+			<li><a href="/sms/sms_info.php"  title="SMS서비스" class="" onmouseover="javascript:menu_view(8);">SMS서비스</a></li>
+		</ul>
+						      
+		
+	</div>
+	<div class="bottom" id="bottom1" name="bottom1" style="display:none;z-index:1;">
+        <ul>
+            <li><a href="/forecast/forecast01.php?mNum=1&sNum=1" title="지역별날씨">지역별날씨</a></li>
+            <li><a href="/forecast/forecast02.php?mNum=1&sNum=1"  title="해상예보">해상예보</a></li>
+            <li><a href="/forecast/forecast03.php?mNum=1&aircode=RKSI"  title="공항예보">공항예보</a></li>
+            <li><a href="/forecast/forecast04.php" title="주간예보">주간예보</a></li>
+            <li><a href="/forecast/forecast05.php"  title="월간예보" class="">월간예보</a></li>
+            <li><a href="/forecast/forecast06.php"  title="계절예보" class="">계절예보</a></li>
+			<li><a href="/forecast/forecast07.php"  title="세계예보" class="">세계예보</a></li>
+			<li><a href="/forecast/forecast08.php?mNum=1&ridcode=1"  title="생활지수" class="">생활지수</a></li>
+			<li><a href="/forecast/forecast09.php"  title="자외선지수" class="">자외선</a></li>
+			<li><a href="/forecast/forecast10.php"  title="현재날씨" class="">현재날씨</a></li>
+			<li><a href="/forecast/forecast11.php"  title="슈퍼컴예보" class="">슈퍼컴</a></li>
+			<li><a href="/forecast/forecast12.php"  title="부유먼지예보" class="">부유먼지</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom2" name="bottom2" style="display:none;z-index:1;">
+        <ul>
+            <li><a href="/special/special01.php" title="기상특보">기상특보</a></li>
+            <li><a href="/special/special02.html"  title="태풍정보">태풍정보</a></li>
+            <li><a href="/special/special03.php"  title="지진정보">지진정보</a></li>
+            <li><a href="/special/special04.php" title="황사정보">황사정보</a></li>
+			<li><a href="/special/special05_1.php" title="미세먼지">미세먼지</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom3"  name="bottom3" style="display:block;z-index:1;">
+        <ul>
+            <li><a href="/leisure/leisure01.php" title="고속도로">고속도로</a></li>
+			<li><a href="/leisure/leisure02.php" title="축구">축구</a></li>
+			<li><a href="/leisure/leisure03.php" title="야구">야구</a></li>
+			<li><a href="/leisure/leisure04.php" title="골프">골프</a></li>
+			<li><a href="/leisure/leisure05.php" title="스키">스키</a></li>
+			<li><a href="/leisure/leisure06.php" title="등산">등산</a></li>
+			<li><a href="/leisure/leisure07.php" title="바다낚시">바다낚시</a></li>
+			<li><a href="/leisure/leisure08.php" title="민물낚시">민물낚시</a></li>
+			<li><a href="/leisure/leisure09.php" title="콘도">콘도</a></li>
+			<li><a href="/leisure/leisure10.php" title="휴양림">휴양림</a></li>
+			<li><a href="/leisure/leisure11.php" title="테마파크">테마파크</a></li>
+			<li><a href="/leisure/leisure12.php" title="해수욕장">해수욕장</a></li>
+			<li><a href="/leisure/leisure13.php" title="드라이브">드라이브</a></li>
+			<li><a href="/leisure/leisure14.php" title="래프팅">래프팅</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom4"  name="bottom4" style="display:none;padding:0 0 0 170px" >
+        <ul>
+			<li><a href="/satellite/satellite01.php" title="레이더영상">레이더영상</a></li>
+			<li><a href="/satellite/satellite02.php" title="위성영상">위성영상</a></li>
+			<li><a href="/satellite/satellite03.php" title="황사분석">황사분석</a></li>
+			<li><a href="/satellite/satellite04.php" title="일기도">일기도</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom5" name="bottom5" style="display:none;z-index:1;">
+        <ul>
+			<li><a href="/bygone/bygone01.php" title="일별검색">일별검색</a></li>
+			<li><a href="/bygone/bygone02.php" title="일별통계">일별통계</a></li>
+			<li><a href="/bygone/bygone03.php" title="기상월표">기상월표</a></li>
+			<li><a href="/bygone/bygone04.php" title="월별검색">월별검색</a></li>
+			<li><a href="/bygone/bygone05.php" title="극값검색">극값검색</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/bygone/bygone06.php','small','width=850, height=1000, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/bygone/bygone06.php','small','width=850, height=1000, scrollbars=yes, menubar=yes'); return false">어제날씨</a></li>
+			<li><a href="/bygone/bygone07.php" title="강우집계">강우집계</a></li>
+			<li><a href="/bygone/bygone08.php" title="적설집계">적설집계</a></li>
+			<li><a href="/bygone/bygone09.php" title="한국기후">한국기후</a></li>
+			<li><a href="/bygone/bygone10.php" title="일평년값">일평년값</a></li>
+			<li><a href="/bygone/bygone11.php" title="월평년값">월평년값</a></li>
+			<li><a href="/bygone/bygone12.php" title="세계기후">세계기후</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom6" name="bottom6"  style="display:none;padding:0 0 0 384px">
+        <ul>
+			<li><a href="/detail/detail.php" title="상세예보">상세예보</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom7" name="bottom7" style="display:none;padding:0 0 0 460px">
+        <ul>
+			<li><a href="/longterm/longterm.php" title="장기예보">장기예보</a></li>
+		</ul>
+	</div>
+	<div class="bottom" id="bottom8" name="bottom8" style="display:none;padding:0 0 0 330px">
+        <ul>
+			<li><a href="/sms/sms_info.php" title="서비스안내">서비스안내</a></li>
+			<li><a href="/sms/sms_type.php" title="서비스종류와 요금">서비스종류와 요금</a></li>
+			<li><a href="/sms/sms_join01.php" title="서비스신청">서비스신청</a></li>
+			<li><a href="/member/member_edit.php" title="서비스정보">서비스정보</a></li>
+		</ul>
+	</div>
+</div>
+</div>
+		</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/images/sub_back02.gif">
+	<tr>
+		<td width="230" rowspan="2" valign="top" background="/images/main_back05.gif">
+			
+		</td>
+		<td height="39" colspan="2"><img src="/images/sub_02.gif" /></td>
+	</tr>
+	<tr>
+		<td width="644" height="84" valign="top" background="/images/sub_03.gif" style="padding-left:30px; padding-top:25px;">
+			<table width="614" border="0" cellspacing="0" cellpadding="0" id="contents">
+				<tr>
+					<td width="327" rowspan="2"><img src="images/leisure_tit04.gif" alt="골프장 날씨" /></td>
+					<td colspan="2" align="right" style="padding-right:13px; font-size:11px; color:#666666"><a href="/index.php"><img src="/images/sub_09.gif" border="0" alt="메인으로" /></a> > 레저스포츠 > <b>골프</b></td>
+				</tr>
+				<tr>
+					<td width="60" style="font-size:11px;"><b>기상특보 :</b></td>
+					<td width="189" background="/images/sub_08.gif" style="padding-bottom:10px; padding-left:18px; padding-right:20px; padding-top:10px;">
+						<table width="180" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td style="font-size:11px;">
+									<marquee direction="left" scrolldelay="180" scrollamount="3" width="180">
+									- 2026-04-12 00:00:00 o 없음									</marquee>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<table width="614" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td height="19"></td>
+				</tr>
+				<tr>
+					<td height="1" bgcolor="#e6e7e9"></td>
+				</tr>
+			</table>
+		</td>
+		<td rowspan="2" valign="top">
+			
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" background="/images/bgs1.png">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="/images/sub_left01.gif" /></td>
+				</tr>
+				<tr>
+					<td height="132" background="/images/sub_left03.gif">
+						<div id="left">
+	<div class="leisure1" id="leisure1" name="leisure1">
+		<ul>
+            <li><a href="leisure01.php?mNum=1&sNum=1&n=n1" title="고속도로">고속도로</a></li>
+            <li><a href="leisure03.php?mNum=1&pageNum=1"  title="야구">야구</a></li>
+            <li><a href="leisure05.php?mNum=1&sNum=1&pageNum=1"  title="스키">스키</a></li>
+            <li><a href="leisure07.php?mNum=1&sNum=1&pageNum=1" title="바다낚시">바다낚시</a></li>
+            <li><a href="leisure09.php?mNum=1&sNum=8&pageNum=1"  title="콘도" class="">콘도</a></li>
+            <li><a href="leisure11.php?mNum=1&sNum=1&pageNum=1"  title="테마파크" class="">테마파크</a></li>
+			<li><a href="leisure13.php?mNum=1&sNum=3&pageNum=1"  title="드라이브" class="">드라이브</a></li>
+		</ul>
+	</div>
+	<div class="leisure2" id="leisure2" name="leisure2">
+		<ul>
+            <li><a href="leisure02.php?mNum=1&sNum=1&ridcode=1&pageNum=1" title="축구">축구</a></li>
+            <li><a href="leisure04.php?mNum=1&sNum=34&pageNum=1"  title="골프">골프</a></li>
+            <li><a href="leisure06.php?mNum=1&sNum=8&pageNum=1"  title="등산">등산</a></li>
+            <li><a href="leisure08.php?mNum=1&sNum=1&pageNum=2" title="민물낚시">민물낚시</a></li>
+            <li><a href="leisure10.php?mNum=1&sNum=8&pageNum=11"  title="휴양림" class="">휴양림</a></li>
+            <li><a href="leisure12.php?mNum=7&sNum=19&pageNum=10"  title="해수욕장" class="">해수욕장</a></li>
+			<li><a href="leisure14.php?mNum=1&sNum=1&pageNum=1"  title="래프팅" class="">래프팅</a></li>
+		</ul>
+	</div>
+	</div>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="/images/sub_left02.gif" /></td>
+				</tr>
+			</table>
+		</td>
+		<td height="500" valign="top" bgcolor="#FFFFFF" style="padding-left:30px;">
+			<table width="615" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+					
+						<script language="javascript" type="text/javascript">
+function TD_ch(num) {
+    var TD_block = "Tab"+num;
+    var TDname1 = "TD"+num;
+
+
+    for(i=1;i<11;i++){
+        var TD_num = "Tab"+i;     
+ var TDname2 = "TD"+i;    
+        document.getElementById(TD_num).style.display="none";    
+ document.getElementById(TDname2).style.backgroundColor="#eaecee";  
+ document.getElementById(TDname2).style.fontSize="12"; 
+ document.getElementById(TDname2).style.fontWeight="bold";
+    }
+    document.getElementById(TD_block).style.display="block";
+    document.getElementById(TDname1).style.backgroundColor="#ffffff"; 
+    document.getElementById(TDname1).style.fontWeight="bold";   
+}
+
+ 
+
+</script>
+
+ 
+
+<table width="100%">
+    <tr>
+        <td>
+
+            <table border="0"  cellpadding="1" cellspacing="1" bgcolor="#eaecee" width="100%"> 
+                <tr>
+                    <td align="center" onclick="javascript:TD_ch(1);" style="cursor:pointer;FONT-WEIGHT: bold;" bgcolor="#ffffff" id="TD1" height="25" width="22%"> 서울/경기(ㄱ~ㅂ) </td>
+                    <td align="center" onclick="javascript:TD_ch(2);" style="cursor:pointer" bgcolor="#eaecee" id="TD2" height="25" width="22%"> 서울/경기(ㅅ~ㅎ) </td>
+                    <td align="center" onclick="javascript:TD_ch(3);" style="cursor:pointer" bgcolor="#eaecee" id="TD3" height="25" width="7%"> 강원 </td>
+					<td align="center" onclick="javascript:TD_ch(4);" style="cursor:pointer" bgcolor="#eaecee" id="TD4" height="25" width="7%"> 충북 </td>
+					<td align="center" onclick="javascript:TD_ch(5);" style="cursor:pointer" bgcolor="#eaecee" id="TD5" height="25" width="7%"> 충남 </td>
+					<td align="center" onclick="javascript:TD_ch(6);" style="cursor:pointer" bgcolor="#eaecee" id="TD6" height="25" width="7%"> 전북 </td>
+					<td align="center" onclick="javascript:TD_ch(7);" style="cursor:pointer" bgcolor="#eaecee" id="TD7" height="25" width="7%"> 전남 </td>
+					<td align="center" onclick="javascript:TD_ch(8);" style="cursor:pointer" bgcolor="#eaecee" id="TD8" height="25" width="7%"> 경북 </td>
+					<td align="center" onclick="javascript:TD_ch(9);" style="cursor:pointer" bgcolor="#eaecee" id="TD9" height="25" width="7%"> 경남 </td>
+					<td align="center" onclick="javascript:TD_ch(10);" style="cursor:pointer" bgcolor="#eaecee" id="TD10" height="25" width="7%"> 제주 </td>
+                </tr>
+            </table>
+
+			
+
+			<div id="Tab1"style="display:block; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010050">123</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010100">360도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010200">88</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012500">H1</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022600">YJC</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010400">가평베네스트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010500">강남300</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010525">강화웰빙</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010550">고양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010600">곤지암</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010700">골드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022637">골프존카운티 송도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010900">골프존카운티안성H</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022688">골프존카운티안성W</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010800">골프클럽Q</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011100">그린힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011150">글렌로스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011200">금강</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011300">기흥</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011400">김포씨사이드</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011500">남부</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011600">남서울</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011800">남수원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011850">남양주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025800">남양주해비치</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011900">남여주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012000">남촌</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024800">노스팜</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012100">뉴서울</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012200">뉴스프링빌</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012300">뉴코리아</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012350">더반</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012400">더스타휴</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020300">더시에나벨루토</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023600">더시에나서울</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012450">더크로스비</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021800">더헤븐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012525">동여주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012550">드림파크</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012566">라비돌</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012575">라싸</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012583">락가든</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012600">레이크사이드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012700">레이크우드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012900">렉스필드</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024050">로제비앙</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012725">루트52</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013000">리베라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013050">리앤리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013075">링크나인</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013100">마에스트로</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022925">마이다스레이크 이천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013200">마이다스밸리 청평</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013300">몽베르</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013400">발리오스</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013437">베뉴지</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013443">베르힐영종</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013425">베스트밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013500">베어즈베스트 청라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013600">베어크리크</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013700">블랙스톤GC이천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04013900">블루원용인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04014000">블루헤런</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04014100">비에이비스타</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024200">비전힐스</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04014200">빅토리아</a>
+                        </td> 
+                    					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab2"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04026200">사우스스프링스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020050">샴발라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020100">서서울</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025600">서울</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020200">서원밸리</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020250">서원힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020275">서평택</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020350">세현</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020400">소피아그린</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020500">솔모로</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020525">솔트베이</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020550">송도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020600">송추</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020700">수원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020750">스마트KU</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020900">스카이밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021050">스프링힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021200">신안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021300">신원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021350">써닝포인트</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021400">썬힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021500">아난티 코드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021600">아리지</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021650">아세코밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021700">아시아나</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021900">안성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022000">안성베네스트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022100">안양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022200">양주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022300">양지파인</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022400">양평TPC</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022500">에덴블루</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022625">여주썬밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022643">오렌지듄스영종</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022650">올림픽</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022675">용인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04021100">원더클럽 신라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04020800">원더클럽 클럽72</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024700">원더클럽 파주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022694">웰링턴</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022700">윈체스트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022750">유니아일랜드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022800">은화삼</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022850">이글몬트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022900">이스트밸리</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04022950">이천실크밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023000">이포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023050">인서울72</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023100">인천국제</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023150">인천그랜드</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023200">일동레이크</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023300">자유</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023350">자유로</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023400">잭니클라우스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023500">제일</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023700">지산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023750">참밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023800">캐슬렉스서울</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04023900">캐슬파인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024000">코리아</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024075">크리스밸리CC</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024100">크리스탈밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024250">타이거</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024300">태광</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024400">태릉</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024450">트리니티</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024500">티클라우드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024600">파인크리크</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024850">페럼</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024900">포레스트힐</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04024950">포웰안성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025000">포천아도니스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025100">포천힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04010300">푸른솔포천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025200">프리스틴밸리</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025300">플라자CC용인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025400">필로스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04011000">한림광릉</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012750">한림안성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04012800">한림용인</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025500">한성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025601">한양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025602">한양파인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025700">한원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025850">해솔리아</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04025900">해슬리나인브릿지</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04026000">화산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04026050">화성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04026100">화성상록</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04026300">힐마루포천</a>
+                        </td> 
+                    </tr>					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab3"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030200">남춘천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030350">동강시스타</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030366">동서울</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030400">동원썬밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030500">라데나</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030900">라비에벨</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031200">로드힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030550">메이플비치</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030600">버치힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030625">베어크리크춘천</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030637">벨라45</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030650">벨라스톤</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030700">블랙밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032950">비콘힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031000">샌드파인</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030950">샤인데일</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031050">설악썬밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030100">설해원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031075">성문안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032400">세레니티강촌</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030750">세이지우드홍천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031100">센추리21</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030333">소노펠리체 델피노</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031133">소노펠리체 비발디파크 EAST</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030800">소노펠리체 비발디파크 WEST</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031166">스프링베일</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031250">알펜시아</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031249">알펜시아700</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032200">알프스대영</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031275">에콜리안정선</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031300">엘리시안강촌</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031350">영랑호</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031400">오너스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031450">오로라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031600">오크밸리</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031700">오크힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031800">오투</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031900">옥스필드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032000">용평</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04031650">월송리</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032050">웰리힐리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032075">인터불고원주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032100">제이드팰리스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032250">카스카디아</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04030316">클럽디더플레이어스</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032300">클럽모우</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032500">파인리즈</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032600">파인밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032650">파크밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032700">플라자CC설악</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032800">하이원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04032900">한탄강</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04033000">휘닉스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04033100">휘슬링락</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04033200">힐드로사이</a>
+                        </td> 
+                    </tr>					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab4"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040025">감곡</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040050">골드나인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041200">골프존카운티진천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04042000">골프존카운티화랑</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040100">그랜드</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040133">대영베이스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040150">대영힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040166">대호단양</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040200">동촌</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040400">레인보우힐스</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040500">로얄포레</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040550">모나크</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040575">블랙스톤벨포레</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040900">세레니티</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040650">세일</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040700">센테리움</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041100">속리산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040600">스타</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040800">시그너스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041000">썬밸리</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041300">아난티중앙</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041333">에콜리안제천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041366">오창에딘버러</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041383">올데이</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04040300">올데이청주떼제베</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041400">이븐데일</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041433">일라이트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041466">일레븐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041500">임페리얼레이크</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041600">젠스필드</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041700">중원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041750">진양밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041800">천룡</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04041900">코스카</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04042016">클럽디보은</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04042033">킹스데일</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04042050">킹즈락</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04042066">히든밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04042100">힐데스하임</a>
+                        </td> 
+                    					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab5"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050800">SG아름다운 </a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050150">골드리버</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050200">골든베이</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050600">골프존카운티천안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050100">구룡대</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050237">내포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050275">더힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050300">도고</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050325">레이캐슬</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051800">로얄링스</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050350">롯데스카이힐부여</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050400">마론</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050500">백제</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050650">보령베이스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050250">사이언스대덕</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051200">서산수</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051000">세종에머슨</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050700">세종필드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050750">솔라고</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051500">스톤비치</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050850">아리스타</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050900">에딘버러</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050950">에스앤</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051100">우정힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051300">유성</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051350">자운대</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051400">천안상록</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051550">파나시아</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051600">파인스톤</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051700">포웰 프린세스</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04051750">플라밍고</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04050225">한미르대덕</a>
+                        </td> 
+                    					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab6"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060875">OK</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060050">고창</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060400">골프존카운티드래곤</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060550">골프존카운티무주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060800">골프존카운티선운</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060100">군산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060200">남원상록</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060250">내장산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060275">더나인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060500">덕유산</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060750">석정힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060825">스파힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060300">써미트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060850">아네스빌</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060862">에스페란사</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060881">웅포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060700">익산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060887">장수</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060900">전주샹그릴라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060950">전주월드컵</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060975">케이밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04061000">태인</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04060600">포세븐금강</a>
+                        </td> 
+                    					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab7"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070050">JNJ</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070100">골드레이크</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070687">골프존카운티영암45</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070850">광산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070150">광양</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070200">광주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070250">나주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070287">나주힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070350">다산베아체</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070400">담양레이나</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070450">디오션</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070500">르오네뜨</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070600">무등산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070650">무안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070656">무안클린밸리</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070663">백양우리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070669">베르힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070675">보성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070678">보성에덴</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070681">부영순천</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070683">빛고을</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070691">상무대</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070900">세이지우드여수경도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070695">솔라시도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04071500">순천</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070800">아크로</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070825">어등산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070875">에콜리안영광</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070300">엘리체</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070925">여수시티파크</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070962">옥과기안</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070950">웨스트오션</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070975">조아밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070981">죽향</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070987">창평</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070993">코스모스링스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04071000">파인비치</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04071100">파인힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04070700">포라이즌</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04071150">푸른솔장성</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04071200">함평엘리체</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04071175">함평천지</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04071300">해피니스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04071400">화순</a>
+                        </td> 
+                    					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab8"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080025">가산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081000">강동디아너스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080050">경주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080100">경주신라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080125">고령오펠</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082026">골프존카운티감포</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082025">골프존카운티구미</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081300">골프존카운티선산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080150">골프존카운티청통</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081500">구니</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080200">구미</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080250">군위오펠</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080300">그레이스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080900">김천포도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080500">남안동</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080350">냉천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080375">뉴스프링빌2</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080387">대가야</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080400">대구</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080750">마스터피스</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080800">마우나오션</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080850">문경</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080950">보문</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081100">블루원상주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081200">서라벌</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081250">선리치</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081400">세븐밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081512">시엘</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081525">안강레전드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082500">안동레이크</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082100">안동리버힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081537">애플밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081550">엠스클럽의성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081900">영천오펠</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081600">오션비치</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080600">오션힐스영천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081700">오션힐스청도</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081800">오션힐스포항</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081905">우리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081910">울진마린</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081916">유니밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081933">이스턴</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081950">이스트힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04081975">이지스카이</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082038">충성대</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082044">칠곡아이위시</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082050">코오롱가든</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082008">파라지오</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082200">파미힐스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082300">팔공</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082350">펜타뷰</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082015">포항</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082400">한맥</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04082000">해내다</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04080550">힐스카이</a>
+                        </td> 
+                    </tr>					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab9"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090100">가야</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090133">거제뷰</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090136">거창</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090140">고성</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090143">골드그린</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090700">골프존카운티경남</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090146">골프존카운티더골프</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091266">골프존카운티사천</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090150">기장동원로얄</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090166">김해상록</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090200">노벨</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090250">다이아몬드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090300">동래베네스트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090400">동부산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090450">동원로얄</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090500">동훈힐마루</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090600">드비치</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090850">리더스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090862">밀양 </a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090875">밀양노벨</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090887">밀양에스파크</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090900">베이사이드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090950">베이스타즈</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091000">보라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091100">부곡</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091200">부산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091233">사우스케이프</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091283">삼삼</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092400">서경타니</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091300">스카이뷰</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091350">스톤게이트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092700">아난티남해</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091400">아델스코트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091450">아라미르</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091500">아시아드</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091600">양산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091650">양산동원로얄</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091700">양산에덴밸리</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091800">에이원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091850">영남알프스</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091875">오르비스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04091900">용원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092000">울산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092033">의령리온</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092066">의령친환경</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092100">정산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092200">진주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092300">창원</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092350">클럽디거창</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092500">통도파인이스트</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04090800">포웰</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092533">하이스트</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092566">해라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092600">해운대</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04092650">해운대비치</a>
+                        </td> 
+                    </tr>					                </table> 
+            </div> 
+			</div>
+			
+
+			<div id="Tab10"style="display:none; zoom:1; overflow:auto; height:100px">
+			<div id="myDiv" style="zoom:1;" class="menulist">
+
+
+
+                <table cellpadding="3" cellspacing="0" width="100%"> 
+					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101800">골프존카운티오라</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102100">그린필드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04100200">나인브릿지</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102000">더시에나제주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04100300">더클래식</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04100400">라온</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04100500">라헨느</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04100700">롯데스카이힐제주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04100600">볼카노</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04100800">부영</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101000">블랙스톤제주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101100">사이프러스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04100900">샤인빌파크</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101300">스프링데일</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101200">아난티제주</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101400">아덴힐</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101500">에버리스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101600">에코랜드</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101700">엘리시안제주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04101900">우리들</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102200">중문</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102300">캐슬렉스제주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102400">크라운</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102500">타미우스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102600">테디밸리</a>
+                        </td> 
+                    </tr>					<tr>                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102650">플라자제주</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102700">핀크스</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102800">한라산</a>
+                        </td> 
+                    					                        <td bgcolor="#ffffff" width="20%">
+                            <a href="leisure04.php?gid=LS04102900">해비치제주</a>
+                        </td> 
+                    					                </table> 
+            </div> 
+			</div>
+			
+          
+        </td> 
+    </tr> 
+</table>
+
+ 
+
+
+
+
+
+ 
+
+
+
+					</td>
+				</tr>
+                 
+				<tr>
+					<td height="53">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="27"><img src="/images/ico_01.gif" alt="메뉴" /></td>
+								<td width="294"><font color="#124d79"><strong>상세예보</strong></font> &nbsp;&nbsp;&nbsp;안양 (고도 : 50m ~ 70m)</td>
+								<td width="294" align="right" valign="top" style="font-size:11px; color:#666666"><!--a href="#ss"><img src="/detail/images/detail_01.gif" /></a> <!--img src="/images/bu_05.gif" --></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table width="615" border="0" cellpadding="1" cellspacing="1" bgcolor="#eaecee" style="BORDER-TOP: #c2dbec 2px solid">
+							<tr>
+								<td height="25" align="center" bgcolor="#f6f6f6" width="90"><font color="#124d79"><strong>날짜</strong></font></td>
+                                 
+							    <td colspan="6" align="center"  bgcolor="#f6f6f6" width="125"><font color="#124d79"><b>04월 12일 (일)</font></td> 
+								   
+								<td colspan="8" align="center"  bgcolor="#f6f6f6" width="200"><font color="#124d79"><b>04월 13일 (월)</font></td> 
+								 
+								<td colspan="7" align="center"  bgcolor="#f6f6f6" width="200"><font color="#124d79"><b>04월 14일 (화)</font></td> 
+															</tr>
+							<tr>
+								<td width="90" height="20" align="center" bgcolor="#FAFAFA"><font color="#686868"><strong>시간</strong></font></td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">09</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">12</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">15</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">18</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">21</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">24</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">03</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">06</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">09</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">12</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">15</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">18</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">21</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">24</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">03</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">06</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">09</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">12</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">15</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">18</td>
+								<td width="25" align="center" bgcolor="#FFFFFF" style="font-size:8pt">21</td>
+							</tr>
+								<tr>
+								<td height="20" align="center" bgcolor="#FAFAFA" width="90"><font color="#686868"><strong>골프지수</strong></font></td>
+                                               <td bgcolor="#66FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='9' align="center">9</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#66FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='9' align="center">9</td>            
+                       <td bgcolor="#66FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='9' align="center">9</td>            
+                       <td bgcolor="#99FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='8' align="center">8</td>            
+                       <td bgcolor="#99FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='8' align="center">8</td>            
+                       <td bgcolor="#66FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='9' align="center">9</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#66FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='9' align="center">9</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#66FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='9' align="center">9</td>            
+                       <td bgcolor="#66FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='9' align="center">9</td>            
+                       <td bgcolor="#66FF66" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='9' align="center">9</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                       <td bgcolor="#00FF00" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;" title='10' align="center">10</td>            
+                                      
+							</tr>
+							<tr>
+								<td height="20" align="center" bgcolor="#FAFAFA"><font color="#686868"><strong>날씨</strong></font></td>
+                                               <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/33_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/33_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/33_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/00_s.gif" width="20" alt=""></td>
+                           <td  bgcolor="#FFFFFF"><img src="../images/s_ico/22_s.gif" width="20" alt=""></td>
+            							</tr>
+						
+							<tr>
+							<td colspan="22"><iframe name=graph src = "/leisure/graph.htm?rid=LS04022100&dd=0" width = "100%" height = "100" frameborder = "0" scrolling = "no" marginwidth = "0" marginheight = "0"></iframe>
+							</td>
+							</tr>
+							<tr>
+							<td colspan="22" align="right" bgcolor="white"><iframe name=graph src = "/leisure/graph2.htm?rid=LS04022100&dd=0" width = "98%" height = "100" frameborder = "0" scrolling = "no" marginwidth = "0" marginheight = "0"></iframe>
+							</td>
+							</tr>
+							<tr>
+                                <td height="25" align="center" bgcolor="#FAFAFA"><font color="#686868"><strong>최고최저</strong></font></td>
+                                 
+							    <td colspan="6" align="center" bgcolor="#FFFFFF"><font color="#3c7ac8">6.0℃</font><font color="#333333">/</font><font color="#ff4800">22.0℃</font></td>
+								   
+								<td colspan="8" align="center" bgcolor="#FFFFFF"><font color="#3c7ac8">10.0℃</font><font color="#333333">/</font><font color="#ff4800">25.0℃</font></td>
+								 
+								<td colspan="7" align="center" bgcolor="#FFFFFF"><font color="#3c7ac8">13.0℃</font><font color="#333333">/</font><font color="#ff4800">23.0℃</font></td>
+								
+							</tr>
+							
+
+							
+							<tr>
+								<td height="20" align="center" bgcolor="#FAFAFA"><font color="#686868"><strong>강수량</strong></font></td>
+								 
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                        
+	                      </td>
+	          							</tr>
+							
+							<tr>
+								<td height="20" align="center" bgcolor="#FAFAFA"><font color="#686868"><strong>풍속</strong></font></td>
+								 
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.6	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.5	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       1.3	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       1.0	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.5	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.5	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.5	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.0	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.6	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.9	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.1	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.8	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.3	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.4	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.8	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       1.0	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       1.7	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       1.3	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       1.8	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       1.7	                      </td>
+	           
+												
+                                                                       	        <td bgcolor="#FFFFFF"  align="center">
+	                       0.7	                      </td>
+	                                        
+							</tr>
+							
+							<tr>
+								<td height="20" align="center" bgcolor="#FAFAFA" width="90"><font color="#686868"><strong>일출일몰</strong></font></td>
+                                 
+							   <td colspan="6" align="center" bgcolor="#FFFFFF" width="125"><font color="#3c7ac8">06:03</font><font color="#333333">/</font><font color="#ff4800">19:04</font></td>
+																<td colspan="8" align="center" bgcolor="#FFFFFF" width="200"><font color="#3c7ac8">06:01</font><font color="#333333">/</font><font color="#ff4800">19:05</font></td>
+								 
+								<td colspan="7" align="center" bgcolor="#FFFFFF" width="200"><font color="#3c7ac8">06:00</font><font color="#333333">/</font><font color="#ff4800">19:06</font></td>
+																
+							</tr>
+							
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="53">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="27"><img src="/images/ico_01.gif" alt="메뉴" /></td>
+								<td><font color="#124d79"><strong>주간예보</strong></font> &nbsp;&nbsp;&nbsp;안양</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table width="615" border="0" cellpadding="1" cellspacing="1" bgcolor="#eaecee" style="BORDER-TOP: #c2dbec 2px solid">
+							<tr>
+								<td width="105" height="25" align="center" bgcolor="#f6f6f6"><font color="#124d79"><strong>날짜</strong></font></td>
+                                								<td width="102" align="center" bgcolor="#f6f6f6"><font color="#124d79"><strong>04/15 (수)</strong></font></td>
+                                								<td width="102" align="center" bgcolor="#f6f6f6"><font color="#124d79"><strong>04/16 (목)</strong></font></td>
+                                								<td width="102" align="center" bgcolor="#f6f6f6"><font color="#124d79"><strong>04/17 (금)</strong></font></td>
+                                								<td width="102" align="center" bgcolor="#f6f6f6"><font color="#124d79"><strong>04/18 (토)</strong></font></td>
+                                								<td width="102" align="center" bgcolor="#f6f6f6"><font color="#124d79"><strong>04/19 (일)</strong></font></td>
+                                							</tr>
+							<tr bgcolor="#FFFFFF">
+								<td height="25" align="center"><font color="#686868"><strong>골프지수</strong></font></td>
+                                								<td align="center" style="padding-bottom:5px; padding-top:5px;" bgcolor="#66FF66">9</td>
+																<td align="center" style="padding-bottom:5px; padding-top:5px;" bgcolor="#99FF66">8</td>
+																<td align="center" style="padding-bottom:5px; padding-top:5px;" bgcolor="#CCFF66">7</td>
+																<td align="center" style="padding-bottom:5px; padding-top:5px;" bgcolor="#CCFF66">7</td>
+																<td align="center" style="padding-bottom:5px; padding-top:5px;" bgcolor="#99FF66">8</td>
+															</tr>
+							<tr bgcolor="#FFFFFF">
+								<td height="45" align="center"><font color="#686868"><strong>날씨</strong></font></td>
+                                								<td align="center" style="padding-bottom:5px; padding-top:5px;"><img src="../images/s_ico/00_s.gif"><br> 맑음 </td>
+																<td align="center" style="padding-bottom:5px; padding-top:5px;"><img src="../images/s_ico/00_s.gif"><br> 맑음 </td>
+																<td align="center" style="padding-bottom:5px; padding-top:5px;"><img src="../images/s_ico/44_s.gif"><br> 비 </td>
+																<td align="center" style="padding-bottom:5px; padding-top:5px;"><img src="../images/s_ico/44_s.gif"><br> 비 </td>
+																<td align="center" style="padding-bottom:5px; padding-top:5px;"><img src="../images/s_ico/00_s.gif"><br> 맑음 </td>
+															</tr>
+							<tr bgcolor="#FAFAFA">
+								<td height="25" align="center"><font color="#686868"><strong>최저/최고기온</strong></font></td>
+                                								<td align="center"><font color="#3c7ac8">9.6℃</font><font color="#333333">/</font><font color="#ff4800">22.4℃</font></td>
+																<td align="center"><font color="#3c7ac8">9.7℃</font><font color="#333333">/</font><font color="#ff4800">24.0℃</font></td>
+																<td align="center"><font color="#3c7ac8">10.5℃</font><font color="#333333">/</font><font color="#ff4800">13.6℃</font></td>
+																<td align="center"><font color="#3c7ac8">13.2℃</font><font color="#333333">/</font><font color="#ff4800">19.2℃</font></td>
+																<td align="center"><font color="#3c7ac8">9.5℃</font><font color="#333333">/</font><font color="#ff4800">21.3℃</font></td>
+															</tr>
+							<tr bgcolor="#FAFAFA">
+								<td height="25" align="center"><font color="#686868"><strong>일출일몰</strong></font></td>
+                                								<td align="center"><font color="#3c7ac8">05:59</font><font color="#333333">/</font><font color="#ff4800">19:06</font></td>
+																<td align="center"><font color="#3c7ac8">05:57</font><font color="#333333">/</font><font color="#ff4800">19:07</font></td>
+																<td align="center"><font color="#3c7ac8">05:56</font><font color="#333333">/</font><font color="#ff4800">19:08</font></td>
+																<td align="center"><font color="#3c7ac8">05:55</font><font color="#333333">/</font><font color="#ff4800">19:09</font></td>
+																<td align="center"><font color="#3c7ac8">05:53</font><font color="#333333">/</font><font color="#ff4800">19:10</font></td>
+															</tr>
+							
+						</table>
+						<br>
+						<table width="615" border="0" cellpadding="1" cellspacing="1" >
+						<tr  bgcolor="#FFFFFF" align="center">
+   <td width="10%"></td>
+   <td colspan="2" width="16%">경보</td>
+   <td colspan="2" width="16%">경계</td>
+   <td colspan="2" width="16%">유의</td>
+   <td colspan="2" width="16%">안전</td>
+   <td colspan="2" width="16%">쾌적</td>
+   <td  width="10%"></td>
+    </tr>
+    <tr  bgcolor="#FFFFFF" height="20">
+   <td ></td>
+   <td bgcolor="#FF0000" width="8%"></td>
+   <td bgcolor="#FF6600" width="8%"></td>
+   <td bgcolor="#FF9933" width="8%"></td>
+   <td bgcolor="#FFCC00" width="8%"></td>
+   <td bgcolor="#FFFF00" width="8%"></td>
+   <td bgcolor="#FFFF66" width="8%"></td>
+   <td bgcolor="#CCFF66" width="8%"></td>
+   <td bgcolor="#99FF66" width="8%"></td>
+   <td bgcolor="#66FF66" width="8%"></td>
+   <td bgcolor="#00FF00" width="8%"></td>
+   <td></td>
+    </tr>
+    <tr  bgcolor="#FFFFFF" height="20" align="center">
+   <td ></td>
+   <td >1</td>
+   <td >2</td>
+   <td >3</td>
+   <td >4</td>
+   <td >5</td>
+   <td >6</td>
+   <td >7</td>
+   <td >8</td>
+   <td >9</td>
+   <td >10</td>
+   <td ></td>
+    </tr>
+    </table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+<tr background="/images/bg5.png">
+		<td valign="top">&nbsp;</td>
+		<td valign="top" style="padding-bottom:50px;"><img src="/images/sub_04.gif" width="674" height="74" /></td>
+		<td valign="top">&nbsp;</td>
+	</tr>
+</table>
+<div id="hotmenu">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<div id="right">
+	<div class="hotmenu" id="hotmenu" name="hotmenu">
+		<ul>
+			<li><br><br></li>
+            <li><a href="http://www.weatheri.co.kr/special/special01.php" title="기상특보">1 기상특보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/longterm/longterm.php" title="장기예보">2 장기예보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/sms/sms_info.php" title="SMS서비스">3 SMS서비스</a></li>
+			            <li><a href="http://www.weatheri.co.kr/special/special04_01.php" title="황사정보">4 황사정보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/forecast/forecast07.php" title="세계예보">5 세계예보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/detail/detail.php" title="상세예보">6 상세예보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/leisure/leisure04.php?mNum=1&sNum=34&pageNum=1" title="골프장날씨">7 골프장날씨</a></li>
+			            <li><a href="http://www.weatheri.co.kr/forecast/precip.php" title="슈퍼컴예보">8 슈퍼컴예보</a></li>
+			            <li><a href="http://www.weatheri.co.kr/forecast/forecast01.php?mNum=1&sNum=1" title="지역별날씨">9 지역별날씨</a></li>
+					</ul>
+	</div>
+			<div class="hotmenu2" id="hotmenu2" name="hotmenu2">
+		<ul>
+			<li><br><br></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful05.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful05.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">조석표</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful02.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful02.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">일출몰시간</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful06.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful06.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">양음력변환</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful07.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful07.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">섭씨화씨변환</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful03.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful03.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">체감온도</a></li>
+            <li><a href="#" 
+ onkeypress="window.open('/useful/useful04.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful04.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">불쾌지수</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/useful/useful08_01.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful08_01.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">날씨속담</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/useful/useful09.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful09.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">기상용어</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/useful/useful10.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful10.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">예보용어</a></li>
+			<li><a href="#" 
+ onkeypress="window.open('/useful/useful01.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false"
+ onclick="window.open('/useful/useful01.php','small','width=850, height=600, scrollbars=yes, menubar=yes'); return false">아이콘설명</a></li>
+		</ul>
+	</div>
+	</div>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/images/main_back03.gif">
+	<tr>
+		<td height="170" valign="top">
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>웨더아이 - 날씨로부터의 자유, 날씨와 함께하는 행복</title>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+<body>
+<table width="903" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="501" height="32" style="padding-left:50px;"><img src="/common/images/footer_01.gif" alt="회사로고"/><a href="/company/company_01.php"><img src="/common/images/footer_02.gif" border="0" alt="회사소개"/></a><a href="/site_map.php"><img src="/common/images/footer_03.gif" border="0" alt="사이트맵"/></a><a href="javascript:;" onClick="MM_openBrWindow('/company/company_pop.php','01','scrollbars=yes,width=650,height=600')"><img src="/common/images/footer_04.gif" border="0" alt="이용약관"/></a></td>
+		<td width="402"><img src="/common/images/footer_05.gif" alt="서울특별시 중구 중림동 브라운스톤서울 101동 2204호 tel:02-704-0030"/></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td style="padding-top:18px;">
+			<table width="547" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="/images/footer_06_2.gif" alt="주)웨더아이"/><img src="/common/images/footer_06.gif" alt="사업자등록번호:106-86-31498"/><a href="javascript:;" onClick="MM_openBrWindow('/company/company_pop01.php','02','scrollbars=yes,width=650,height=600')"><img src="/common/images/footer_07.gif" border="0" alt="개인정보취급방침"/></a><img src="/common/images/footer_08.gif" alt="이메일주소 무단 수집거부"/></td>
+				</tr>
+				<tr>
+					<td align="right"><img src="/common/images/footer_09.gif" alt="copyright 주)웨더아이"/></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>		</td>
+	</tr>
+</table>
+</body>
+</html>
+
