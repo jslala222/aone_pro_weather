@@ -472,8 +472,17 @@ export default function GolfWeatherMobile({
                   </div>
                 </div>
 
-                {/* [NEW] 홈 화면 정밀 분석 리포트 카드 */}
                 <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+                   <DetailedWeatherTable
+                      data={weatherData.forecasts.slice(0, 48)}
+                      sunriseSunset={weatherData.sunriseSunset}
+                      title="단기 기상 예보 (홈)"
+                      compact={true}
+                   />
+                </div>
+
+                {/* [NEW] 홈 화면 정밀 분석 리포트 카드 */}
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
                   <div className="bg-slate-900 rounded-[2.5rem] p-8 border-2 border-emerald-500/20 shadow-xl relative overflow-hidden group">
                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:rotate-12 transition-transform duration-500">
                       <Activity className="w-20 h-20 text-emerald-500" />
@@ -482,7 +491,7 @@ export default function GolfWeatherMobile({
                       <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                       <h4 className="text-sm font-black text-emerald-400 uppercase tracking-widest">AI 기상 분석 리포트</h4>
                     </div>
-                    
+
                     <div className="space-y-6 relative z-10">
                       <p className="text-white/90 text-lg font-bold leading-relaxed tracking-tight">
                         {Number(weatherData.forecasts[0].temp) > 25 ? (
@@ -493,7 +502,7 @@ export default function GolfWeatherMobile({
                           <>현재 <span className="text-emerald-400">라운딩하기 최적인 상태</span>입니다. 시정 거리가 확보되어 관제가 원활할 것으로 보입니다.</>
                         )}
                       </p>
-                      
+
                       <div className="flex gap-4">
                         <div className="flex-1 p-4 bg-white/5 rounded-2xl border border-white/10">
                            <div className="text-[10px] font-black text-slate-400 uppercase mb-1">체감 기온</div>
@@ -506,15 +515,6 @@ export default function GolfWeatherMobile({
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-                   <DetailedWeatherTable 
-                      data={weatherData.forecasts.slice(0, 12)} 
-                      sunriseSunset={weatherData.sunriseSunset} 
-                      title="단기 기상 예보 (홈)"
-                      compact={true}
-                   />
                 </div>
               </>
             ) : (
@@ -554,19 +554,13 @@ export default function GolfWeatherMobile({
                       <div className="text-xs font-bold text-slate-400 capitalize">{selectedLocation?.type} Center</div>
                    </div>
                 </div>
-                <DetailedWeatherTable 
-                  data={weatherData.forecasts} 
-                  sunriseSunset={weatherData.sunriseSunset} 
-                  title="전문 기상 데이터 분석 (FULL)"
-                />
-
                 {/* [NEW] 분석 탭 전용 전문 기상 브리핑 섹션 */}
-                <div className="mt-10 space-y-6">
+                <div className="space-y-6">
                   <div className="flex items-center gap-2 px-2">
                     <Activity className="w-5 h-5 text-emerald-500" />
                     <h5 className="text-lg font-black text-[var(--foreground)]">정밀 관제 리포트</h5>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 gap-4">
                     <div className="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-[2rem] p-6 space-y-4">
                       <div className="flex items-center justify-between">
@@ -574,7 +568,7 @@ export default function GolfWeatherMobile({
                         <span className="text-xs font-black text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full">최상 (92%)</span>
                       </div>
                       <p className="text-sm font-bold text-[var(--foreground)] leading-relaxed">
-                        현재 기압 배치가 안정적이며, 가시거리가 {Number(weatherData.forecasts[0].wind) < 2 ? '20km 이상' : '15km 내외'}로 확보되어 매우 쾌적한 라운딩이 예상됩니다. 
+                        현재 기압 배치가 안정적이며, 가시거리가 {Number(weatherData.forecasts[0].wind) < 2 ? '20km 이상' : '15km 내외'}로 확보되어 매우 쾌적한 라운딩이 예상됩니다.
                         오후 {weatherData.sunriseSunset[1]} 이전까지는 일사량이 풍부하여 기온이 유지될 것으로 분석됩니다.
                       </p>
                     </div>
@@ -592,6 +586,14 @@ export default function GolfWeatherMobile({
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div className="mt-10">
+                  <DetailedWeatherTable
+                    data={weatherData.forecasts}
+                    sunriseSunset={weatherData.sunriseSunset}
+                    title="전문 기상 데이터 분석 (FULL)"
+                  />
                 </div>
               </div>
             ) : (
@@ -612,17 +614,6 @@ export default function GolfWeatherMobile({
                 <h4 className="text-3xl font-black text-slate-900 italic tracking-tighter leading-none">SYSTEM <br/>CONTROL</h4>
               </div>
             </div>
-
-             <div className="bg-white border-2 border-slate-100 rounded-[3rem] p-10 space-y-4 shadow-sm">
-                <div className="flex items-center gap-3 mb-2">
-                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                   <h5 className="text-xl font-black text-slate-900">SYSTEM INFO</h5>
-                </div>
-                <p className="text-xs font-bold text-slate-400 tracking-tight leading-relaxed">
-                   에이원프로 웨더 모니터링 시스템 v2.0<br/>
-                   모든 데이터는 실시간 위성 관측 자료를 기반으로 합니다.
-                </p>
-             </div>
 
             {/* 즐겨찾기 관리 섹션 */}
             <div className="space-y-4">
@@ -662,6 +653,17 @@ export default function GolfWeatherMobile({
                  </div>
                )}
             </div>
+
+             <div className="bg-white border-2 border-slate-100 rounded-[3rem] p-10 space-y-4 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                   <h5 className="text-xl font-black text-slate-900">SYSTEM INFO</h5>
+                </div>
+                <p className="text-xs font-bold text-slate-400 tracking-tight leading-relaxed">
+                   에이원프로 웨더 모니터링 시스템 v2.0<br/>
+                   모든 데이터는 실시간 위성 관측 자료를 기반으로 합니다.
+                </p>
+             </div>
 
             {/* 개발 정보 */}
             <div className="pt-16 border-t border-slate-100 space-y-6 px-4 pb-10">

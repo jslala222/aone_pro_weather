@@ -139,7 +139,7 @@ async function fetchAddressWeather(lat: number, lon: number, name: string) {
     const currentHour = now.getHours();
     const forecasts: any[] = [];
 
-    for (let i = 0; i < hourly.time.length && forecasts.length < 12; i++) {
+    for (let i = 0; i < hourly.time.length && forecasts.length < 48; i++) {
         const fTime = new Date(hourly.time[i]);
         if (fTime >= now || (fTime.getHours() === currentHour && fTime.toDateString() === now.toDateString())) {
             const h = fTime.getHours();

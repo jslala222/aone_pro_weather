@@ -90,6 +90,11 @@ export async function scrapeGolfWeather(gid: string): Promise<WeatherResult | nu
       const tds = $(tr).find('td');
       const label = tds.first().text().trim();
 
+      // 모든 행의 레이블 로깅 (디버깅용)
+      if (label && (label.includes('기온') || label.includes('시간') || label.includes('풍속'))) {
+        console.log('[골프] 행 레이블:', label, '| 셀 개수:', tds.length);
+      }
+
       if (label === '시간') {
         let currentDate = '';
         tds.each((i, td) => {
@@ -119,25 +124,37 @@ export async function scrapeGolfWeather(gid: string): Promise<WeatherResult | nu
           if (val && !isNaN(Number(val))) golfIndexes.push(val);
         }});
       } else if (label.includes('기온') && !label.includes('최고/최저')) {
-        tds.each((i, td) => { if (i > 0 && temps.length < times.length) {
-          const match = $(td).text().trim().match(/-?\d+(\.\d+)?/);
-          if (match) temps.push(Math.round(parseFloat(match[0])).toString());
-        }});
+        tds.each((i, td) => {
+          if (i > 0) {
+            const match = $(td).text().trim().match(/-?\d+(\.\d+)?/);
+            if (match) {
+              temps.push(Math.round(parseFloat(match[0])).toString());
+            }
+          }
+        });
       } else if (label.includes('강수량')) {
         tds.each((i, td) => { if (i > 0 && rains.length < times.length) {
           const match = $(td).text().trim().match(/\d+(\.\d+)?/);
           rains.push(match ? match[0] : '0');
         }});
       } else if (label.includes('풍속')) {
-        tds.each((i, td) => { if (i > 0 && winds.length < times.length) {
-          const match = $(td).text().trim().match(/\d+(\.\d+)?/);
-          if (match) winds.push(match[0]);
-        }});
+        tds.each((i, td) => {
+          if (i > 0) {
+            const match = $(td).text().trim().match(/\d+(\.\d+)?/);
+            if (match) {
+              winds.push(match[0]);
+            }
+          }
+        });
       } else if (label.includes('습도')) {
-        tds.each((i, td) => { if (i > 0 && humidities.length < times.length) {
-          const match = $(td).text().trim().match(/\d+/);
-          if (match) humidities.push(match[0]);
-        }});
+        tds.each((i, td) => {
+          if (i > 0) {
+            const match = $(td).text().trim().match(/\d+/);
+            if (match) {
+              humidities.push(match[0]);
+            }
+          }
+        });
       } else if (label.includes('일출일몰')) {
         tds.each((i, td) => { if (i > 0) {
           const val = $(td).text().trim();
@@ -146,12 +163,18 @@ export async function scrapeGolfWeather(gid: string): Promise<WeatherResult | nu
       }
     });
 
+    // 디버깅: 데이터 배열 길이 확인
+    console.log('[골프 날씨 파싱] times:', times.length, times);
+    console.log('[골프 날씨 파싱] temps:', temps.length, temps);
+    console.log('[골프 날씨 파싱] winds:', winds.length, winds);
+    console.log('[골프 날씨 파싱] humidities:', humidities.length, humidities);
+
     const forecasts: WeatherRow[] = [];
     for (let i = 0; i < times.length; i++) {
       const t = parseFloat(temps[i] || '0');
       const w = parseFloat(winds[i] || '0');
       const h = parseFloat(humidities[i] || '50');
-      
+
       forecasts.push({
         time: times[i],
         date: dates[i],
@@ -160,11 +183,12 @@ export async function scrapeGolfWeather(gid: string): Promise<WeatherResult | nu
         feelsLike: calculateFeelsLike(t, w, h),
         rain: rains[i] || '0',
         wind: winds[i] || '0',
-        humidity: humidities[i] || undefined, 
+        humidity: humidities[i] || undefined,
         golfIndex: golfIndexes[i] || undefined,
       });
     }
 
+    console.log('[골프 날씨 최종] forecasts:', forecasts);
     return { type: 'golf', locationName, forecasts, sunriseSunset };
   } catch (err) {
     console.error(`[골프 날씨 오류] GID=${gid}:`, err);
@@ -228,25 +252,37 @@ export async function scrapeRegionWeather(rid: string, name: string): Promise<We
           }
         }});
       } else if (label.includes('기온') && !label.includes('최고/최저')) {
-        tds.each((i, td) => { if (i > 0 && temps.length < times.length) {
-          const match = $(td).text().trim().match(/-?\d+(\.\d+)?/);
-          if (match) temps.push(Math.round(parseFloat(match[0])).toString());
-        }});
+        tds.each((i, td) => {
+          if (i > 0) {
+            const match = $(td).text().trim().match(/-?\d+(\.\d+)?/);
+            if (match) {
+              temps.push(Math.round(parseFloat(match[0])).toString());
+            }
+          }
+        });
       } else if (label.includes('강수량')) {
         tds.each((i, td) => { if (i > 0 && rains.length < times.length) {
           const match = $(td).text().trim().match(/\d+(\.\d+)?/);
           rains.push(match ? match[0] : '0');
         }});
       } else if (label.includes('풍속')) {
-        tds.each((i, td) => { if (i > 0 && winds.length < times.length) {
-          const match = $(td).text().trim().match(/\d+(\.\d+)?/);
-          if (match) winds.push(match[0]);
-        }});
+        tds.each((i, td) => {
+          if (i > 0) {
+            const match = $(td).text().trim().match(/\d+(\.\d+)?/);
+            if (match) {
+              winds.push(match[0]);
+            }
+          }
+        });
       } else if (label.includes('습도')) {
-        tds.each((i, td) => { if (i > 0 && humidities.length < times.length) {
-          const match = $(td).text().trim().match(/\d+/);
-          if (match) humidities.push(match[0]);
-        }});
+        tds.each((i, td) => {
+          if (i > 0) {
+            const match = $(td).text().trim().match(/\d+/);
+            if (match) {
+              humidities.push(match[0]);
+            }
+          }
+        });
       } else if (label.includes('일출일몰')) {
         tds.each((i, td) => { if (i > 0) {
           const val = $(td).text().trim();
@@ -254,6 +290,12 @@ export async function scrapeRegionWeather(rid: string, name: string): Promise<We
         }});
       }
     });
+
+    // 디버깅: 데이터 배열 길이 확인
+    console.log('[지역 날씨 파싱] times:', times.length, times);
+    console.log('[지역 날씨 파싱] temps:', temps.length, temps);
+    console.log('[지역 날씨 파싱] winds:', winds.length, winds);
+    console.log('[지역 날씨 파싱] humidities:', humidities.length, humidities);
 
     const forecasts: WeatherRow[] = [];
     for (let i = 0; i < times.length; i++) {
@@ -273,6 +315,7 @@ export async function scrapeRegionWeather(rid: string, name: string): Promise<We
       });
     }
 
+    console.log('[지역 날씨 최종] forecasts:', forecasts);
     return { type: 'region', locationName: name, forecasts, sunriseSunset };
   } catch (err) {
     console.error(`[지역 날씨 오류] RID=${rid}:`, err);
