@@ -1,43 +1,57 @@
 // Path: src/lib/weather-engine.ts
-// Description: 웨더아이(Weatheri) 범용 날씨 스크래퍼 (에이원프로 웨더 통합 버전)
+// Description: 웨더아이(Weatheri) 스크래핑 엔진 - 골프장 상세 및 지역 생활지수 지원
 
 import * as cheerio from 'cheerio';
 
-/** 시간별 날씨 데이터 한 행 */
+/** 시간별 날씨 데이터 행 */
 export interface WeatherRow {
-  time: string;       // 예: "09시"
-  date?: string;      // 예: "04.11" 또는 "오늘"
-  status: string;     // 예: "맑음", "구름많음", "비"
-  temp: string;       // 기온 (°C)
-  feelsLike?: string; // 체감온도 (°C) [NEW]
-  rain: string;       // 강수량 (mm)
-  wind: string;       // 풍속 (m/s)
-  humidity?: string;  // 습도 (%) [NEW]
-  golfIndex?: string; // 골프지수 (1~10, 골프장 전용)
+  time: string;
+  date: string;
+  status: string;
+  temp: string;
+  feelsLike?: string;
+  rain: string;
+  wind: string;
+  humidity?: string;
+  golfIndex?: string;
 }
 
-/** 
- * 체감온도 계산 함수
- */
+/** 주간 예보 데이터 행 */
+export interface WeeklyForecast {
+  date: string;
+  golfIndex: string;
+  status: string;
+  tempLow: string;
+  tempHigh: string;
+  sunriseSunset: string;
+}
+
+/** 체감 온도 계산 (간이 공식) */
 function calculateFeelsLike(temp: number, wind: number, humidity: number): string {
   let feels = temp;
   if (temp <= 10) {
-    feels = 13.12 + 0.6215 * temp - 11.37 * Math.pow(wind * 3.6, 0.16) + 0.3965 * temp * Math.pow(wind * 3.6, 0.16);
+    feels = 13.12 + 0.6215 * temp - 11.37 * Math.pow(wind, 0.16) + 0.3965 * temp * Math.pow(wind, 0.16);
   } else if (temp >= 25) {
-    const h = humidity / 100;
-    feels = 0.5 * (temp + 61.0 + ((temp - 68.0) * 1.2) + (h * 0.094));
-  } else {
     feels = temp - (wind * 0.5) + (humidity > 70 ? 1 : 0);
   }
   return Math.round(feels).toString();
 }
 
+/** 생활 지수 데이터 행 */
+export interface LivingIndex {
+  label: string;      // 예: "세차지수"
+  value: string;      // 예: "100"
+  descText: string;   // 예: "세차 후의 상쾌함을..."
+}
+
 /** 날씨 응답 공통 구조 */
 export interface WeatherResult {
-  type: 'golf' | 'region';         // 데이터 종류
-  locationName: string;             // 장소 이름
-  forecasts: WeatherRow[];          // 시간별 예보
-  sunriseSunset: string[];          // [일출, 일몰]
+  type: 'golf' | 'region';          // 데이터 종류
+  locationName: string;              // 장소 이름
+  forecasts: WeatherRow[];           // 시간별 예보
+  weeklyForecasts?: WeeklyForecast[]; // 주간 예보
+  livingIndices?: LivingIndex[];     // 생활 지수 (지역 전용)
+  sunriseSunset: string[];           // [일출, 일몰]
 }
 
 // 아이콘 파일명 → 한글 날씨 상태 매핑
@@ -62,10 +76,10 @@ export async function scrapeGolfWeather(gid: string): Promise<WeatherResult | nu
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'Cache-Control': 'no-cache'
       },
+      next: { revalidate: 0 }
     });
     
     if (!res.ok) return null;
-
     const html = await res.text();
     const $ = cheerio.load(html);
     
@@ -74,124 +88,161 @@ export async function scrapeGolfWeather(gid: string): Promise<WeatherResult | nu
       const text = $(el).text().trim();
       if (text && !locationName) locationName = text;
     });
-    if (!locationName) locationName = '골프장';
 
-    const times: string[] = [];
-    const dates: string[] = [];
-    const statuses: string[] = [];
-    const temps: string[] = [];
-    const rains: string[] = [];
-    const winds: string[] = [];
-    const humidities: string[] = []; // [NEW]
-    const golfIndexes: string[] = [];
+    const forecasts: WeatherRow[] = [];
+    const weeklyForecasts: WeeklyForecast[] = [];
     const sunriseSunset: string[] = [];
 
-    $('tr').each((_, tr) => {
-      const tds = $(tr).find('td');
-      const label = tds.first().text().trim();
+    // ─────────────────────────────────────────────────────────
+    // graph.htm에서 웨더아이 실제 기온 데이터 추출
+    // (기온 그래프는 iframe으로 분리된 별도 파일에 존재)
+    // ─────────────────────────────────────────────────────────
+    let graphTemps: number[] = [];
+    try {
+      const graphRes = await fetch(
+        `https://www.weatheri.co.kr/leisure/graph.htm?rid=${gid}&dd=0`,
+        { headers: { 'User-Agent': 'Mozilla/5.0', 'Referer': 'https://www.weatheri.co.kr/' }, next: { revalidate: 0 } }
+      );
+      if (graphRes.ok) {
+        const graphHtml = await graphRes.text();
+        // Highcharts data: [15,21,23,...] 패턴 추출
+        const m = graphHtml.match(/data:\s*\[([\d,\s\-\.\r\n]+)\]/);
+        if (m) {
+          graphTemps = m[1].split(',').map(v => parseFloat(v.trim())).filter(v => !isNaN(v));
+        }
+      }
+    } catch { /* graph.htm 실패 시 무시 */ }
 
-      // 모든 행의 레이블 로깅 (디버깅용)
-      if (label && (label.includes('기온') || label.includes('시간') || label.includes('풍속'))) {
-        console.log('[골프] 행 레이블:', label, '| 셀 개수:', tds.length);
+    $('table').each((_, tbl) => {
+      // 중첩 테이블(외부 레이아웃 래퍼)은 건너뜀 — 리프 테이블만 데이터 파싱
+      if ($(tbl).find('table').length > 0) return;
+
+      const rows = $(tbl).find('tr');
+
+      // 각 행의 첫 번째 셀 레이블 목록 추출 (th 또는 td 모두 허용)
+      const rowLabels = rows.toArray().map(tr =>
+        $(tr).find('th, td').first().text().trim()
+      );
+
+      // 시간별(단기) 예보 테이블 판별
+      // ※ 골프 페이지의 기온은 graph.htm(iframe)에서 추출
+      const hasTimeRow    = rowLabels.some(l => l === '시간' || l.includes('시간(시)') || l === '예보시간');
+      const hasGolfIdxRow = rowLabels.some(l => l.includes('지수'));
+
+      if (hasTimeRow && hasGolfIdxRow && forecasts.length === 0) {
+        const d_h_raw: string[] = [];
+        const t_h: string[] = [];
+        const i_h: string[] = [];
+        const s_h: string[] = [];
+        const r_h: string[] = [];
+        const w_h: string[] = [];
+
+        rows.each((_, tr) => {
+          const allCells = $(tr).find('th, td');
+          const label = allCells.first().text().trim();
+          const datas = allCells.slice(1);
+
+          if (label.includes('날짜')) {
+            datas.each((_, td) => {
+              const dateText = $(td).text().trim();
+              const colspanVal = parseInt($(td).attr('colspan') || '1', 10);
+              for (let c = 0; c < colspanVal; c++) d_h_raw.push(dateText);
+            });
+          } else if (label.includes('시간')) {
+            datas.each((_, td) => { t_h.push($(td).text().trim()); });
+          } else if (label.includes('지수')) {
+            datas.each((_, td) => {
+              const m = $(td).text().trim().match(/\d+/);
+              i_h.push(m ? m[0] : '0');
+            });
+          } else if (label.includes('날씨') || label.includes('하늘')) {
+            datas.each((_, td) => {
+              const img = $(td).find('img').first();
+              const fn = img.attr('src')?.split('/').pop() || '';
+              s_h.push(weatherMap[fn] || img.attr('alt') || '맑음');
+            });
+          } else if (label.includes('강수')) {
+            datas.each((_, td) => { r_h.push($(td).text().trim() || '0'); });
+          } else if (label.includes('풍속')) {
+            datas.each((_, td) => { w_h.push($(td).text().trim()); });
+          }
+        });
+
+        let lastD = '';
+        for (let j = 0; j < t_h.length; j++) {
+          if (d_h_raw[j]) lastD = d_h_raw[j];
+          // graph.htm에서 가져온 실제 기온 사용 (없으면 '-')
+          const temp = graphTemps[j] !== undefined ? String(graphTemps[j]) : '-';
+
+          forecasts.push({
+            time:      t_h[j]    || '',
+            date:      lastD     || '오늘',
+            status:    s_h[j]    || '맑음',
+            temp,
+            golfIndex: i_h[j]    || '0',
+            rain:      r_h[j]    || '0',
+            wind:      w_h[j]    || '0'
+          });
+        }
+
+        // 골프지수 0인 후미 슬롯 제거
+        let cutoff = forecasts.length;
+        while (cutoff > 0 && forecasts[cutoff - 1].golfIndex === '0') cutoff--;
+        if (cutoff < forecasts.length) forecasts.splice(cutoff);
       }
 
-      if (label === '시간') {
-        let currentDate = '';
-        tds.each((i, td) => {
-          if (i > 0) {
-            const t = $(td).text().trim();
-            if (t.includes('.') || t.includes('월')) {
-              currentDate = t.replace(/\s+/g, '');
-            } else if (t && times.length < 48) {
-              times.push(t.includes('시') ? t : t + '시');
-              dates.push(currentDate || '오늘');
+      // 주간 예보 테이블 판별: '일출' 또는 '주간예보' 키워드, 단 시간별 행이 없는 테이블
+      const hasSunRow = rowLabels.some(l => l.includes('일출'));
+      const hasWeeklyHdr = $(tbl).text().includes('주간예보');
+
+      if ((hasSunRow || hasWeeklyHdr) && !hasTimeRow && weeklyForecasts.length === 0) {
+        const d_w: string[] = [];
+        const i_w: string[] = [];
+        const s_w: string[] = [];
+        const temp_w: string[] = [];
+        const sun_w: string[] = [];
+
+        rows.each((_, tr) => {
+          const tds = $(tr).find('td');
+          const label = tds.first().text().trim();
+          const datas = tds.slice(1);
+
+          if (label.includes('날짜')) datas.each((_, td) => { d_w.push($(td).text().trim()); });
+          else if (label.includes('지수')) datas.each((_, td) => { i_w.push($(td).text().trim()); });
+          else if (label.includes('날씨')) datas.each((_, td) => {
+            const img = $(td).find('img').first();
+            const fn = img.attr('src')?.split('/').pop() || '';
+            s_w.push(weatherMap[fn] || img.attr('alt') || '맑음');
+          });
+          else if (label.includes('기온')) datas.each((_, td) => {
+            const raw = $(td).text().trim();
+            if (raw.includes('/')) {
+              temp_w.push(raw);
+            } else {
+              const m = raw.match(/-?\d+(\.\d+)?/);
+              temp_w.push(m ? m[0] : '0');
             }
-          }
+          });
+          else if (label.includes('일출')) datas.each((_, td) => { sun_w.push($(td).text().trim()); });
         });
-      } else if (label.includes('날씨')) {
-        tds.each((i, td) => { if (i > 0 && statuses.length < times.length) {
-          const img = $(td).find('img');
-          if (img.length > 0) {
-            const src = img.attr('src') || '';
-            const alt = img.attr('alt') || '';
-            const fileName = src.split('/').pop() || '';
-            statuses.push(weatherMap[fileName] || alt || '맑음');
-          }
-        }});
-      } else if (label.includes('골프지수')) {
-        tds.each((i, td) => { if (i > 0 && golfIndexes.length < times.length) {
-          const val = $(td).text().trim();
-          if (val && !isNaN(Number(val))) golfIndexes.push(val);
-        }});
-      } else if (label.includes('기온') && !label.includes('최고/최저')) {
-        tds.each((i, td) => {
-          if (i > 0) {
-            const match = $(td).text().trim().match(/-?\d+(\.\d+)?/);
-            if (match) {
-              temps.push(Math.round(parseFloat(match[0])).toString());
-            }
-          }
+
+        d_w.forEach((date, di) => {
+          if (!date) return;
+          const tp = (temp_w[di] || '0/0').split('/');
+          weeklyForecasts.push({
+            date,
+            golfIndex: i_w[di] || '0',
+            status: s_w[di] || '맑음',
+            tempLow: tp[0]?.trim() || '0',
+            tempHigh: tp[1]?.trim() || '0',
+            sunriseSunset: sun_w[di] || ''
+          });
         });
-      } else if (label.includes('강수량')) {
-        tds.each((i, td) => { if (i > 0 && rains.length < times.length) {
-          const match = $(td).text().trim().match(/\d+(\.\d+)?/);
-          rains.push(match ? match[0] : '0');
-        }});
-      } else if (label.includes('풍속')) {
-        tds.each((i, td) => {
-          if (i > 0) {
-            const match = $(td).text().trim().match(/\d+(\.\d+)?/);
-            if (match) {
-              winds.push(match[0]);
-            }
-          }
-        });
-      } else if (label.includes('습도')) {
-        tds.each((i, td) => {
-          if (i > 0) {
-            const match = $(td).text().trim().match(/\d+/);
-            if (match) {
-              humidities.push(match[0]);
-            }
-          }
-        });
-      } else if (label.includes('일출일몰')) {
-        tds.each((i, td) => { if (i > 0) {
-          const val = $(td).text().trim();
-          if (val && sunriseSunset.length < 2) sunriseSunset.push(val);
-        }});
       }
     });
 
-    // 디버깅: 데이터 배열 길이 확인
-    console.log('[골프 날씨 파싱] times:', times.length, times);
-    console.log('[골프 날씨 파싱] temps:', temps.length, temps);
-    console.log('[골프 날씨 파싱] winds:', winds.length, winds);
-    console.log('[골프 날씨 파싱] humidities:', humidities.length, humidities);
-
-    const forecasts: WeatherRow[] = [];
-    for (let i = 0; i < times.length; i++) {
-      const t = parseFloat(temps[i] || '0');
-      const w = parseFloat(winds[i] || '0');
-      const h = parseFloat(humidities[i] || '50');
-
-      forecasts.push({
-        time: times[i],
-        date: dates[i],
-        status: statuses[i] || '맑음',
-        temp: temps[i] || '0',
-        feelsLike: calculateFeelsLike(t, w, h),
-        rain: rains[i] || '0',
-        wind: winds[i] || '0',
-        humidity: humidities[i] || undefined,
-        golfIndex: golfIndexes[i] || undefined,
-      });
-    }
-
-    console.log('[골프 날씨 최종] forecasts:', forecasts);
-    return { type: 'golf', locationName, forecasts, sunriseSunset };
+    return { type: 'golf', locationName: locationName || '골프장', forecasts, weeklyForecasts, sunriseSunset };
   } catch (err) {
-    console.error(`[골프 날씨 오류] GID=${gid}:`, err);
     return null;
   }
 }
@@ -200,20 +251,13 @@ export async function scrapeGolfWeather(gid: string): Promise<WeatherResult | nu
  * 2. 지역별 날씨 스크래퍼 (RID 기반)
  */
 export async function scrapeRegionWeather(rid: string, name: string): Promise<WeatherResult | null> {
-  const url = `https://www.weatheri.co.kr/forecast/forecast01.php?rid=${rid}&k=1&a_name=${encodeURIComponent(name)}`;
+  const url = `https://www.weatheri.co.kr/forecast/forecast01.php?rid=${rid}`;
+  const livingUrl = `https://www.weatheri.co.kr/forecast/forecast08.php?rid=${rid}`;
 
   try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Cache-Control': 'no-cache'
-      },
-    });
-
+    const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' }, next: { revalidate: 0 } });
     if (!res.ok) return null;
-
-    const html = await res.text();
-    const $ = cheerio.load(html);
+    const $ = cheerio.load(await res.text());
 
     const times: string[] = [];
     const dates: string[] = [];
@@ -221,115 +265,85 @@ export async function scrapeRegionWeather(rid: string, name: string): Promise<We
     const temps: string[] = [];
     const rains: string[] = [];
     const winds: string[] = [];
-    const humidities: string[] = []; // [NEW]
+    const humidities: string[] = [];
     const sunriseSunset: string[] = [];
 
     $('tr').each((_, tr) => {
       const tds = $(tr).find('td');
       const label = tds.first().text().trim();
+      const datas = tds.slice(1);
 
       if (label === '시간') {
-        let currentDate = '';
-        tds.each((i, td) => {
-          if (i > 0) {
-            const t = $(td).text().trim();
-            if (t.includes('.') || t.includes('월')) {
-              currentDate = t.replace(/\s+/g, '');
-            } else if (t && times.length < 48) {
-              times.push(t.includes('시') ? t : t + '시');
-              dates.push(currentDate || '오늘');
-            }
+        let curD = '';
+        datas.each((_, td) => {
+          const t = $(td).text().trim();
+          if (t.includes('.') || t.includes('월')) curD = t.replace(/\s+/g, '');
+          else if (t && times.length < 48) {
+            times.push(t.includes('시') ? t : t + '시');
+            dates.push(curD || '오늘');
           }
         });
       } else if (label.includes('날씨')) {
-        tds.each((i, td) => { if (i > 0 && statuses.length < times.length) {
-          const img = $(td).find('img');
-          if (img.length > 0) {
-            const src = img.attr('src') || '';
-            const alt = img.attr('alt') || '';
-            const fileName = src.split('/').pop() || '';
-            statuses.push(weatherMap[fileName] || alt || '맑음');
-          }
-        }});
-      } else if (label.includes('기온') && !label.includes('최고/최저')) {
-        tds.each((i, td) => {
-          if (i > 0) {
-            const match = $(td).text().trim().match(/-?\d+(\.\d+)?/);
-            if (match) {
-              temps.push(Math.round(parseFloat(match[0])).toString());
-            }
-          }
+        datas.each((_, td) => {
+          const img = $(td).find('img').first();
+          const fn = img.attr('src')?.split('/').pop() || '';
+          statuses.push(weatherMap[fn] || img.attr('alt') || '맑음');
         });
-      } else if (label.includes('강수량')) {
-        tds.each((i, td) => { if (i > 0 && rains.length < times.length) {
-          const match = $(td).text().trim().match(/\d+(\.\d+)?/);
-          rains.push(match ? match[0] : '0');
-        }});
-      } else if (label.includes('풍속')) {
-        tds.each((i, td) => {
-          if (i > 0) {
-            const match = $(td).text().trim().match(/\d+(\.\d+)?/);
-            if (match) {
-              winds.push(match[0]);
-            }
-          }
+      } else if (label.includes('기온') && !label.includes('최고')) {
+        datas.each((_, td) => {
+          const m = $(td).text().trim().match(/-?\d+/);
+          if (m) temps.push(m[0]);
         });
-      } else if (label.includes('습도')) {
-        tds.each((i, td) => {
-          if (i > 0) {
-            const match = $(td).text().trim().match(/\d+/);
-            if (match) {
-              humidities.push(match[0]);
-            }
-          }
-        });
-      } else if (label.includes('일출일몰')) {
-        tds.each((i, td) => { if (i > 0) {
-          const val = $(td).text().trim();
-          if (val && sunriseSunset.length < 2) sunriseSunset.push(val);
-        }});
-      }
+      } else if (label.includes('강수')) datas.each((_, td) => { rains.push($(td).text().trim() || '0'); });
+      else if (label.includes('풍속')) datas.each((_, td) => { winds.push($(td).text().trim()); });
+      else if (label.includes('습도')) datas.each((_, td) => { humidities.push($(td).text().trim()); });
+      else if (label.includes('일출일몰')) datas.each((_, td) => {
+        const v = $(td).text().trim();
+        if (v && sunriseSunset.length < 2) sunriseSunset.push(v);
+      });
     });
 
-    // 디버깅: 데이터 배열 길이 확인
-    console.log('[지역 날씨 파싱] times:', times.length, times);
-    console.log('[지역 날씨 파싱] temps:', temps.length, temps);
-    console.log('[지역 날씨 파싱] winds:', winds.length, winds);
-    console.log('[지역 날씨 파싱] humidities:', humidities.length, humidities);
+    const forecasts: WeatherRow[] = times.map((t, i) => {
+        const tempVal = parseFloat(temps[i] || '0');
+        const windVal = parseFloat(winds[i] || '0');
+        const humVal = parseFloat(humidities[i] || '50');
+        return {
+            time: t,
+            date: dates[i],
+            status: statuses[i] || '맑음',
+            temp: temps[i] || '0',
+            feelsLike: calculateFeelsLike(tempVal, windVal, humVal),
+            rain: rains[i] || '0',
+            wind: winds[i] || '0'
+        };
+    });
 
-    const forecasts: WeatherRow[] = [];
-    for (let i = 0; i < times.length; i++) {
-      const t = parseFloat(temps[i] || '0');
-      const w = parseFloat(winds[i] || '0');
-      const h = parseFloat(humidities[i] || '50');
+    const livingIndices: LivingIndex[] = [];
+    try {
+      const lRes = await fetch(livingUrl, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+      if (lRes.ok) {
+        const $l = cheerio.load(await lRes.text());
+        $l('strong').each((_, el) => {
+          const text = $l(el).text().trim();
+          if (text.includes(':')) {
+            const parts = text.split(':');
+            livingIndices.push({
+              label: parts[0].trim(),
+              value: parts[1].trim(),
+              descText: $l(el).parent().text().replace(text, '').trim()
+            });
+          }
+        });
+      }
+    } catch (e) {}
 
-      forecasts.push({
-        time: times[i],
-        date: dates[i],
-        status: statuses[i] || '맑음',
-        temp: temps[i] || '0',
-        feelsLike: calculateFeelsLike(t, w, h),
-        rain: rains[i] || '0',
-        wind: winds[i] || '0',
-        humidity: humidities[i] || undefined,
-      });
-    }
-
-    console.log('[지역 날씨 최종] forecasts:', forecasts);
-    return { type: 'region', locationName: name, forecasts, sunriseSunset };
+    return { type: 'region', locationName: name, forecasts, livingIndices: livingIndices.slice(0, 8), sunriseSunset };
   } catch (err) {
-    console.error(`[지역 날씨 오류] RID=${rid}:`, err);
     return null;
   }
 }
 
-/**
- * 3. 범용 날씨 스크래핑 함수 (GID 또는 RID 지원)
- */
 export async function fetchWeatherDatai(location: { type: 'golf' | 'region'; id: string; name: string }): Promise<WeatherResult | null> {
-  if (location.type === 'golf') {
-    return scrapeGolfWeather(location.id);
-  } else {
-    return scrapeRegionWeather(location.id, location.name);
-  }
+  if (location.type === 'golf') return scrapeGolfWeather(location.id);
+  return scrapeRegionWeather(location.id, location.name);
 }

@@ -139,16 +139,21 @@ async function fetchAddressWeather(lat: number, lon: number, name: string) {
     const currentHour = now.getHours();
     const forecasts: any[] = [];
 
-    for (let i = 0; i < hourly.time.length && forecasts.length < 48; i++) {
+    for (let i = 0; i < hourly.time.length && forecasts.length < 24; i++) {
         const fTime = new Date(hourly.time[i]);
+        const h = fTime.getHours();
+
+        // 골프장 예보와 동일하게 3시간 단위(00,03,06,09,12,15,18,21시)만 표시
+        if (h % 3 !== 0) continue;
+
         if (fTime >= now || (fTime.getHours() === currentHour && fTime.toDateString() === now.toDateString())) {
-            const h = fTime.getHours();
             forecasts.push({
                 time: `${h}시`,
                 temp: `${Math.round(hourly.temperature_2m[i])}`,
                 status: wmoToKo(hourly.weather_code[i]),
                 wind: `${hourly.wind_speed_10m[i]}`,
-                rain: `${hourly.precipitation_probability[i] || 0}%`, // 비 확률로 대체
+                rain: `${hourly.precipitation_probability[i] || 0}%`,
+                date: fTime.toLocaleDateString('ko-KR', { month: 'numeric', day: 'numeric', weekday: 'short' }),
             });
         }
     }

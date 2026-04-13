@@ -6,6 +6,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Sun, Moon, Cloud, CloudRain, Wind, MapPin, Navigation, Search, Star, X, Loader2, LocateFixed, Droplets, Activity } from 'lucide-react';
 import DetailedWeatherTable from './DetailedWeatherTable';
+import WeeklyForecastTable from './WeeklyForecastTable';
+import WeatheriAnalysisView from './WeatheriAnalysisView';
 
 interface WeatherItem {
   time: string;
@@ -22,6 +24,8 @@ interface WeatherItem {
 interface DetailedData {
     locationName: string;
     forecasts: WeatherItem[];
+    weeklyForecasts?: any[]; 
+    livingIndices?: any[]; 
     sunriseSunset: string[];
 }
 
@@ -104,27 +108,37 @@ export default function GolfWeatherMobile({
     }
   };
 
-  // 검색 실행
+  // 검색 핵심 로직 분리
+  const performSearch = useCallback(async (searchTerm: string) => {
+    const trimmed = searchTerm.trim();
+    if (trimmed.length >= 1) { // 1자 이상부터 검색 허용 (사용자 편의성)
+      setSearching(true);
+      try {
+        const res = await fetch(`/api/weather?type=search&q=${encodeURIComponent(trimmed)}&tab=${searchTab}`);
+        const data = await res.json();
+        setSearchResults(data.results || []);
+      } catch (err) {
+        console.error('Search Error:', err);
+      } finally {
+        setSearching(false);
+      }
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchTab]);
+
+  // 자동 검색 (디바운스)
   useEffect(() => {
-    const delayDebounceFn = setTimeout(async () => {
+    const delayDebounceFn = setTimeout(() => {
       if (query.trim().length >= 2) {
-        setSearching(true);
-        try {
-          const res = await fetch(`/api/weather?type=search&q=${encodeURIComponent(query)}&tab=${searchTab}`);
-          const data = await res.json();
-          setSearchResults(data.results || []);
-        } catch (err) {
-          console.error('Search Error:', err);
-        } finally {
-          setSearching(false);
-        }
+        performSearch(query);
       } else {
         setSearchResults([]);
       }
-    }, 300);
+    }, 400); // 디바운스 시간을 약간 늘려 서버 부하 방지 및 정확한 자동 검색 지원
 
     return () => clearTimeout(delayDebounceFn);
-  }, [query, searchTab]);
+  }, [query, performSearch]);
 
   // 즐겨찾기 토글
   const toggleFavorite = (loc: SearchResult) => {
@@ -226,18 +240,35 @@ export default function GolfWeatherMobile({
             </div>
 
             {/* 내부 입력창 */}
-            <div className="relative">
+            <div className="relative group">
               <input
                 autoFocus
                 type="text"
                 placeholder="어디의 날씨가 궁금하신가요?"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    performSearch(query);
+                  }
+                }}
+                onPaste={(e) => {
+                  const pasted = e.clipboardData.getData('text');
+                  if (pasted) {
+                    setQuery(pasted);
+                    setTimeout(() => performSearch(pasted), 50); // 붙여넣기 후 즉시 검색 트리거
+                  }
+                }}
                 className="w-full bg-[var(--background)] border-2 border-[var(--card-border)] rounded-full py-5 pl-16 pr-14 text-base font-black text-[var(--foreground)] focus:border-emerald-500 outline-none transition-all shadow-inner"
               />
-              <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-emerald-500" />
+              <button 
+                onClick={() => performSearch(query)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-2.5 bg-emerald-500/10 hover:bg-emerald-500 hover:text-white rounded-2xl transition-all active:scale-90 z-10"
+              >
+                <Search className="w-6 h-6" />
+              </button>
               {query && (
-                <button onClick={() => setQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-slate-200 rounded-full">
+                <button onClick={() => setQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-slate-200 rounded-full hover:bg-slate-300 transition-all">
                   <X className="w-4 h-4 text-slate-600" />
                 </button>
               )}
@@ -270,7 +301,7 @@ export default function GolfWeatherMobile({
 
               {/* 검색 결과 리스트 */}
               <div className="space-y-2">
-                {query.length >= 2 ? (
+                {query.length >= 1 ? (
                   <>
                     {searching ? (
                       <div className="py-20 flex flex-col items-center justify-center gap-4 text-emerald-500">
@@ -281,22 +312,38 @@ export default function GolfWeatherMobile({
                       <>
                         {searchResults.length > 0 ? (
                           searchResults.map((res) => (
-                            <div key={res.id} className="flex items-center justify-between p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-[2.5rem] hover:bg-emerald-500/5 transition-all group shadow-md active:scale-95 mb-4">
-                              <button onClick={() => { setSelectedLocation(res); fetchWeather(res); }} className="flex-1 flex items-center gap-6 text-left">
-                                <div className={`w-14 h-14 flex items-center justify-center rounded-[1.25rem] shadow-md transition-transform group-hover:rotate-12 ${
-                                  res.type === 'golf' ? 'bg-emerald-500 text-white' : 
-                                  res.type === 'address' ? 'bg-orange-500 text-white' : 'bg-blue-500 text-white'
+                            <div key={`${res.type}-${res.id}`} className={`flex items-center justify-between p-6 border rounded-[2.5rem] hover:bg-emerald-500/5 transition-all group shadow-md active:scale-95 mb-4 ${
+                               res.type === 'golf' ? 'bg-emerald-50/50 border-emerald-200' : 'bg-[var(--card-bg)] border-[var(--card-border)]'
+                            }`}>
+                              <button 
+                                onClick={() => { 
+                                  setSelectedLocation(res); 
+                                  fetchWeather(res); 
+                                  setIsSearchOpen(false); 
+                                }} 
+                                className="flex-1 flex items-center gap-6 text-left"
+                              >
+                                <div className={`w-14 h-14 flex items-center justify-center rounded-[1.25rem] shadow-xl transition-transform group-hover:scale-110 ${
+                                  res.type === 'golf' ? 'bg-emerald-500 text-white shadow-emerald-200' : 
+                                  res.type === 'address' ? 'bg-orange-500 text-white shadow-orange-200' : 'bg-blue-500 text-white shadow-blue-200'
                                 }`}>
                                   {res.type === 'golf' ? <Navigation className="w-6 h-6" /> : <MapPin className="w-6 h-6" />}
                                 </div>
                                 <div className="space-y-1.5 flex-1">
-                                  <div className="text-lg font-black text-[var(--foreground)] group-hover:text-emerald-600 transition-colors line-clamp-1 leading-tight">{res.name}</div>
-                                  <div className="text-sm font-bold text-slate-500">{res.region}</div>
+                                  <div className="flex items-center gap-2">
+                                     <div className="text-lg font-black text-[var(--foreground)] group-hover:text-emerald-600 transition-colors line-clamp-1 leading-tight">{res.name}</div>
+                                     {res.type === 'golf' && (
+                                        <span className="px-2 py-0.5 bg-emerald-500 text-[10px] font-black text-white rounded-md tracking-tighter shadow-sm">골프지수</span>
+                                     )}
+                                  </div>
+                                  <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                     {res.type === 'golf' ? 'Professional Golf Weather Station' : res.region || res.type}
+                                  </div>
                                 </div>
                               </button>
                               <button 
                                 onClick={() => toggleFavorite(res)} 
-                                className={`p-4 rounded-2xl transition-all ${favorites.some(f => f.id === res.id) ? 'text-yellow-500 bg-[var(--background)] shadow-sm' : 'text-slate-300 hover:bg-[var(--background)]'}`}
+                                className={`p-4 rounded-2xl transition-all ${favorites.some(f => f.id === res.id) ? 'text-yellow-500 bg-[var(--background)] shadow-sm' : 'text-slate-200 hover:text-yellow-400'}`}
                               >
                                 <Star className={`w-6 h-6 ${favorites.some(f => f.id === res.id) ? 'fill-current' : ''}`} />
                               </button>
@@ -366,6 +413,13 @@ export default function GolfWeatherMobile({
                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
                     <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">즐겨찾는 장소</h4>
                   </div>
+                  {/* 즐겨찾기 탭(system)으로 이동 */}
+                  <button
+                    onClick={() => setActiveTab('system')}
+                    className="text-[10px] font-black text-slate-400 hover:text-emerald-500 uppercase tracking-widest transition-colors"
+                  >
+                    전체 &rsaquo;
+                  </button>
                 </div>
                 <div className="flex flex-wrap gap-2.5">
                   {favorites.slice(0, 5).map((fav) => (
@@ -383,7 +437,7 @@ export default function GolfWeatherMobile({
                   ))}
                   {favorites.length > 5 && (
                     <button 
-                      onClick={() => setActiveTab('analysis')}
+                      onClick={() => setActiveTab('system')}
                       className="px-5 py-3 rounded-full border-2 border-dashed border-slate-200 text-slate-400 text-sm font-black active:scale-95 transition-all"
                     >
                       더보기 ({favorites.length - 5})
@@ -503,16 +557,29 @@ export default function GolfWeatherMobile({
                         )}
                       </p>
 
-                      <div className="flex gap-4">
-                        <div className="flex-1 p-4 bg-white/5 rounded-2xl border border-white/10">
-                           <div className="text-[10px] font-black text-slate-400 uppercase mb-1">체감 기온</div>
-                           <div className="text-xl font-black text-white">{weatherData.forecasts[0].feelsLike}°C</div>
-                        </div>
-                        <div className="flex-1 p-4 bg-white/5 rounded-2xl border border-white/10">
-                           <div className="text-[10px] font-black text-slate-400 uppercase mb-1">특이 사항</div>
-                           <div className="text-xl font-black text-emerald-400">{Number(weatherData.forecasts[0].wind) > 3 ? '강풍 주의' : '기류 안정'}</div>
-                        </div>
-                      </div>
+                      {/* 체감기온 = feelsLike 없으면 풍속냉각(Wind Chill) 공식으로 자동 계산 */}
+                      {(() => {
+                        const t = Number(weatherData.forecasts[0].temp) || 0;
+                        const w = Number(weatherData.forecasts[0].wind) || 0;
+                        // 풍속냉각 공식 (기온 10°C 이하, 풍속 1.3m/s 이상 시 적용)
+                        const feelsLike = weatherData.forecasts[0].feelsLike
+                          ? Number(weatherData.forecasts[0].feelsLike)
+                          : (t <= 10 && w >= 1.3)
+                            ? Math.round(13.12 + 0.6215 * t - 11.37 * Math.pow(w * 3.6, 0.16) + 0.3965 * t * Math.pow(w * 3.6, 0.16))
+                            : t;
+                        return (
+                          <div className="flex gap-4">
+                            <div className="flex-1 p-4 bg-white/5 rounded-2xl border border-white/10">
+                               <div className="text-[10px] font-black text-slate-400 uppercase mb-1">체감 기온</div>
+                               <div className="text-xl font-black text-white">{feelsLike}°C</div>
+                            </div>
+                            <div className="flex-1 p-4 bg-white/5 rounded-2xl border border-white/10">
+                               <div className="text-[10px] font-black text-slate-400 uppercase mb-1">특이 사항</div>
+                               <div className="text-xl font-black text-emerald-400">{w > 3 ? '강풍 주의' : '기류 안정'}</div>
+                            </div>
+                          </div>
+                        );
+                      })()}
                     </div>
                   </div>
                 </div>
@@ -532,74 +599,105 @@ export default function GolfWeatherMobile({
         {/* [ANALYSIS TAB CONTENT] */}
         {activeTab === 'analysis' && (
           <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6 pb-20">
-            <div className="flex items-center justify-between mb-8 px-2 pt-4">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-6 bg-emerald-500 rounded-full"></div>
-                <h4 className="text-3xl font-black text-slate-900 italic tracking-tighter leading-none">기상 데이터<br/>정밀 분석</h4>
-              </div>
+            {/* ── 섹션 1: 기상 데이터 정밀 분석 헤더 ── */}
+            <div className="flex items-center gap-2 px-2 pt-4">
+              <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+              <h4 className="text-3xl font-black text-slate-900 italic tracking-tighter leading-none">
+                기상 데이터<br/>정밀 분석
+              </h4>
             </div>
-            
+
             {weatherData ? (
-              <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
-                <div className="bg-slate-900 p-6 rounded-[2.5rem] shadow-xl mb-8 flex items-center justify-between border-2 border-emerald-500/30">
-                   <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                         <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Active Station</span>
-                      </div>
-                       <h5 className="text-lg font-black text-white">{selectedLocation?.name}</h5>
-                   </div>
-                   <div className="text-right">
-                      <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Source</div>
-                      <div className="text-xs font-bold text-slate-400 capitalize">{selectedLocation?.type} Center</div>
-                   </div>
+              <div className="space-y-6">
+                {/* ── Active Station 카드 ── */}
+                <div className="bg-slate-900 p-6 rounded-[2.5rem] shadow-xl flex items-center justify-between border-2 border-emerald-500/30">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Active Station</span>
+                    </div>
+                    <h5 className="text-lg font-black text-white">{selectedLocation?.name}</h5>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Source</div>
+                    <div className="text-xs font-bold text-slate-400 capitalize">{selectedLocation?.type} Center</div>
+                  </div>
                 </div>
-                {/* [NEW] 분석 탭 전용 전문 기상 브리핑 섹션 */}
-                <div className="space-y-6">
+
+                {/* ── 분석 관측 리포트 카드 ── */}
+                <div className="space-y-4">
                   <div className="flex items-center gap-2 px-2">
                     <Activity className="w-5 h-5 text-emerald-500" />
-                    <h5 className="text-lg font-black text-[var(--foreground)]">정밀 관제 리포트</h5>
+                    <h5 className="text-lg font-black text-slate-900">분석 관측 리포트</h5>
                   </div>
-
-                  <div className="grid grid-cols-1 gap-4">
-                    <div className="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-[2rem] p-6 space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-black text-slate-400 uppercase tracking-widest">라운딩 적합도</span>
-                        <span className="text-xs font-black text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full">최상 (92%)</span>
-                      </div>
-                      <p className="text-sm font-bold text-[var(--foreground)] leading-relaxed">
-                        현재 기압 배치가 안정적이며, 가시거리가 {Number(weatherData.forecasts[0].wind) < 2 ? '20km 이상' : '15km 내외'}로 확보되어 매우 쾌적한 라운딩이 예상됩니다.
-                        오후 {weatherData.sunriseSunset[1]} 이전까지는 일사량이 풍부하여 기온이 유지될 것으로 분석됩니다.
-                      </p>
+                  <div className="bg-white border border-slate-100 rounded-[2rem] p-6 space-y-3 shadow-sm">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-black text-slate-400 uppercase tracking-widest">관측 종합</span>
+                      <span className="text-xs font-black text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full">
+                        {Number(weatherData.forecasts[0].wind) < 2 ? '최상 (92%)' : Number(weatherData.forecasts[0].wind) < 4 ? '양호 (78%)' : '주의 (55%)'}
+                      </span>
                     </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-[2rem] p-6 text-center shadow-sm">
-                        <Wind className="w-6 h-6 text-slate-400 mx-auto mb-2" />
-                        <div className="text-[10px] font-black text-slate-400 uppercase mb-1">기류 안정성</div>
-                        <div className="text-lg font-black text-[var(--foreground)]">{Number(weatherData.forecasts[0].wind) < 4 ? '안정' : '불안정'}</div>
-                      </div>
-                      <div className="bg-[var(--card-bg)] border border-[var(--card-border)] rounded-[2rem] p-6 text-center shadow-sm">
-                        <Activity className="w-6 h-6 text-emerald-500 mx-auto mb-2" />
-                        <div className="text-[10px] font-black text-slate-400 uppercase mb-1">체감 지수</div>
-                        <div className="text-lg font-black text-emerald-500">{weatherData.forecasts[0].feelsLike}°C</div>
+                    <p className="text-sm font-bold text-slate-700 leading-relaxed">
+                      현재 기압 배치가 안정적이며 가시거리가 {Number(weatherData.forecasts[0].wind) < 2 ? '20km 이상' : '15km 이하'}로 예보되어{' '}
+                      {Number(weatherData.forecasts[0].wind) < 4 ? '쾌적한 라운딩이 예상됩니다.' : '강풍 주의가 필요합니다.'}{' '}
+                      일몰 {weatherData.sunriseSunset[1] || '--:--'} 이전까지 일조시간이 확보되어 기온이 유지될 것으로 분석됩니다.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white border border-slate-100 rounded-[2rem] p-6 text-center shadow-sm">
+                      <Wind className="w-6 h-6 text-slate-400 mx-auto mb-2" />
+                      <div className="text-[10px] font-black text-slate-400 uppercase mb-1">기류 안정도</div>
+                      <div className="text-lg font-black text-slate-900">{Number(weatherData.forecasts[0].wind) < 4 ? '안정' : '불안정'}</div>
+                    </div>
+                    <div className="bg-white border border-slate-100 rounded-[2rem] p-6 text-center shadow-sm">
+                      <Activity className="w-6 h-6 text-emerald-500 mx-auto mb-2" />
+                      <div className="text-[10px] font-black text-slate-400 uppercase mb-1">체감 기온</div>
+                      <div className="text-lg font-black text-emerald-600">
+                        {(() => {
+                          const t = Number(weatherData.forecasts[0].temp) || 0;
+                          const w = Number(weatherData.forecasts[0].wind) || 0;
+                          return weatherData.forecasts[0].feelsLike
+                            ? Number(weatherData.forecasts[0].feelsLike)
+                            : (t <= 10 && w >= 1.3)
+                              ? Math.round(13.12 + 0.6215 * t - 11.37 * Math.pow(w * 3.6, 0.16) + 0.3965 * t * Math.pow(w * 3.6, 0.16))
+                              : t;
+                        })()}°C
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-10">
+                {/* ── 전문 기상 데이터 표 (DetailedWeatherTable) ── */}
+                <div>
                   <DetailedWeatherTable
                     data={weatherData.forecasts}
                     sunriseSunset={weatherData.sunriseSunset}
                     title="전문 기상 데이터 분석 (FULL)"
                   />
                 </div>
+
+                {/* ── 구분선 ── */}
+                <div className="flex items-center gap-3 px-2">
+                  <div className="flex-1 h-px bg-slate-100" />
+                  <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Weatheri 정밀 분석</span>
+                  <div className="flex-1 h-px bg-slate-100" />
+                </div>
+
+                {/* ── 기존 WeatheriAnalysisView 유지 ── */}
+                <div className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm">
+                  <WeatheriAnalysisView
+                    locationName={selectedLocation?.name || '골프장'}
+                    hourlyData={weatherData.forecasts}
+                    weeklyData={weatherData.weeklyForecasts || []}
+                    livingIndices={weatherData.livingIndices}
+                    sunriseSunset={weatherData.sunriseSunset}
+                  />
+                </div>
               </div>
             ) : (
               <div className="py-40 text-center space-y-4">
-                 <Loader2 className="w-10 h-10 animate-spin text-slate-300 mx-auto" />
-                 <p className="text-xs font-black text-slate-400 tracking-widest uppercase">분석할 날씨 데이터가 부족합니다.</p>
+                <Loader2 className="w-10 h-10 animate-spin text-slate-300 mx-auto" />
+                <p className="text-xs font-black text-slate-400 tracking-widest uppercase">분석할 날씨 데이터가 부족합니다.</p>
               </div>
             )}
           </div>
@@ -625,7 +723,15 @@ export default function GolfWeatherMobile({
                  <div className="space-y-3">
                    {favorites.map((fav) => (
                      <div key={fav.id} className="flex items-center justify-between p-6 bg-white border border-slate-100 rounded-[2rem] shadow-sm hover:border-emerald-200 transition-colors">
-                        <div className="flex items-center gap-5">
+                        {/* 클릭 시 → 홈(monitor) 탭으로 이동하며 날씨 검색 */}
+                        <button
+                          className="flex items-center gap-5 flex-1 text-left active:opacity-70 transition-opacity"
+                          onClick={() => {
+                            setSelectedLocation(fav);
+                            fetchWeather(fav);
+                            setActiveTab('monitor');
+                          }}
+                        >
                            <div className={`w-12 h-12 rounded-[1.25rem] flex items-center justify-center text-white shadow-md ${fav.type === 'golf' ? 'bg-emerald-500' : 'bg-blue-500'}`}>
                               {fav.type === 'golf' ? <Navigation className="w-6 h-6" /> : <MapPin className="w-6 h-6" />}
                            </div>
@@ -633,7 +739,7 @@ export default function GolfWeatherMobile({
                               <div className="text-lg font-black text-slate-900 leading-none">{fav.name}</div>
                               <div className="text-[10px] font-bold text-slate-400 capitalize tracking-widest">{fav.region} • {fav.type}</div>
                            </div>
-                        </div>
+                        </button>
                         <button 
                           onClick={() => toggleFavorite(fav)}
                           className="p-4 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-[1.25rem] transition-all active:scale-90"
